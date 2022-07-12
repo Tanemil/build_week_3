@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaxInvoiceListComponent } from './tax-invoice-list.component';
+import { TaxInvoiceListPage } from './tax-invoice-list.page';
 
-const routes: Routes = [{ path: '', component: TaxInvoiceListComponent }];
+const routes: Routes = [{ path: '', component: TaxInvoiceListPage }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
