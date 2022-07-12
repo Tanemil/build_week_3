@@ -6,6 +6,13 @@
       "firstname": "Tanemil",
       "lastname": "fdsfsd",
       "id": 1
+    },
+    {
+      "email": "abc@gmail.com",
+      "password": "$2a$10$0dNUb2hBEzf1NvcXvQUviOWUD4qhITo58f79zQJb9Jd6zU7APjB2O",
+      "firstname": "Gianluca",
+      "lastname": "Gallone",
+      "id": 2
     }
   ]
 }

@@ -8,21 +8,22 @@ import { NavbarComponent } from './pages_and_components/header/components/navbar
 import { FooterComponent } from './pages_and_components/footer/footer.component';
 import { AuthModule } from './pages_and_components/auth/auth.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderModule } from './pages_and_components/header/header.module';
+import { FooterModule } from './pages_and_components/footer/footer.module';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    NavbarComponent,
-    FooterComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HeaderModule,
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
