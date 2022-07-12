@@ -4,12 +4,14 @@ import { FooterComponent } from './footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarComponent } from './components/mat-toolbar.component';
 
 
 
 @NgModule({
   declarations: [
-    FooterComponent
+    FooterComponent,
+    MatToolbarComponent
   ],
   imports: [
     CommonModule,
