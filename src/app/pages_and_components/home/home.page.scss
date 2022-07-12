@@ -1,0 +1,29 @@
+.img_background{
+  background: linear-gradient(rgba(0, 0, 0, 0.2) ,rgba(0, 0, 0, 0.2) ) ,url('../../../assets/pexels-h-emre-773471.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 90%;
+  div.middle_gradient{
+    background: radial-gradient(circle, rgba(0,0,0,0.5018382352941176) 0%, rgba(0,0,0,0.7987570028011204) 0%, rgba(0,0,0,0.4990371148459384) 100%);
+    width: 100%;
+    h1{
+      color: white;
+      font-size: 3rem;
+    }
+  }
+}
+
+.business_man_img{
+  background: url("../../../assets/pexels-andrea-piacquadio-3771082.jpg");
+  height: 100%;
+  background-size: cover;
+}
+
+.container{
+  margin-top: 6rem;
+  .row{
+    height: 40rem;
+  }
+}
+
+
