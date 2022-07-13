@@ -19,13 +19,45 @@
   background-size: cover;
 }
 
-.container{
+.container_1{
   margin-top: 12rem;
   .row{
     height: 40rem;
+    h2{
+      font-size: 3rem;
+      line-height: 3.6rem;
+    }
     p{
       font-family: 'Ibarra Real Nova', serif;
+      line-height: 2.5rem;
     }
+    .small_square{
+      width: 6rem;
+      height: 6rem;
+      background-color: orange;
+      margin-top: 2rem;
+    }
+  }
+}
+
+.container_2{
+  img{
+    width: 100%;
+    height: 40rem;
+    margin-top: 12rem;
+  }
+}
+
+.container mat-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 0;
+  height: 20rem;
+  margin: 0 0.5rem;
+  top: -6rem;
+  p{
+    font-size: 0.8rem;
   }
 }
 
