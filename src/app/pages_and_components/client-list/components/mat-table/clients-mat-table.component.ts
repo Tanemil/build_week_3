@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -14,7 +14,7 @@ import { IClientsData } from '../../interfaces/iclients-data';
   styleUrls: ['./clients-mat-table.component.scss']
 })
 
-export class ClientsMatTableComponent implements AfterViewInit {
+export class ClientsMatTableComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'p.iva', 'email', 'tel'];
   dataSource: MatTableDataSource<IClientsData>;
 
@@ -35,6 +35,9 @@ export class ClientsMatTableComponent implements AfterViewInit {
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(this.clients);
+  }
+  ngOnInit(): void {
+    this.getAllClients();
   }
 
   ngAfterViewInit() {

@@ -66,9 +66,11 @@ export class AuthService {
         .subscribe(
           resp => {
             // tramite la risposta del get, inserisce i dati dal db, nell'array clients
+            console.log(resp);
             this.clients = resp;
           },
           err => {
+            console.log(err);
             this.error = err.error
           }
         )

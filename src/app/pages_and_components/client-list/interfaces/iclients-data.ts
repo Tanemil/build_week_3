@@ -9,8 +9,8 @@ export interface IClientsData {
     "cognomeContatto"?: string,
     "telefonoContatto"?: number,
     "emailContatto"?: string,
-    indirizzoSedeOperativa?: {
-        via?: string,
+    "indirizzoSedeOperativa?": {
+        "via?": string,
         "civico"?: number,
         "cap"?: number,
         "localita"?: string,
