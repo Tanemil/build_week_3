@@ -8,161 +8,166 @@
         <div class="container_input_field">
             <mat-form-field appearance="fill">
                 <mat-label>ragione sociale</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="ragioneSociale">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>partita Iva</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="partitaIva">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>tipo cliente</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="tipoCliente">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>email</mat-label>
-                <input matInput type="email">
+                <input matInput ngModel type="email" name="email">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>pec</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="pec">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>telefono</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="telefono">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>nome contatto</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="nomeContatto">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>cognome contatto</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="cognomeContatto">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>telefono contatto</mat-label>
+                <input matInput ngModel type="number" name="telefonoContatto">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>email contatto</mat-label>
-                <input matInput type="email">
+                <input matInput ngModel type="email" name="emailContatto">
             </mat-form-field>
 
             <h2>indirizzo sede operativa</h2>
 
             <mat-form-field appearance="fill">
                 <mat-label>via</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeOperativa.via">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>civico</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeOperativa.civico">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>cap</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeOperativa.cap">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>localita'</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeOperativa.localita">
             </mat-form-field>
 
             <h3>comune</h3>
 
             <mat-form-field appearance="fill">
                 <mat-label>id</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeOperativa.comune.id">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>nome</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeOperativa.comune.nome">
             </mat-form-field>
 
             <h4>provincia</h4>
 
             <mat-form-field appearance="fill">
                 <mat-label>id</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeOperativa.comune.provincia.id">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>nome</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeOperativa.comune.provincia.nome">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>sigla</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeOperativa.comune.provincia.sigla">
             </mat-form-field>
 
             <h2>indirizzo sede legale</h2>
 
             <mat-form-field appearance="fill">
                 <mat-label>via</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeLegale.via">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>civico</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeLegale.civico">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>cap</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeLegale.cap">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>localita'</mat-label>
-                <input matInput type="string">
+                <input matInput ngModel type="string" name="indirizzoSedeLegale.localita">
             </mat-form-field>
 
             <h3>comune</h3>
 
             <mat-form-field appearance="fill">
                 <mat-label>id</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeLegale.comune.id">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>nome</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeLegale.comune.nome">
             </mat-form-field>
 
             <h4>provincia</h4>
 
             <mat-form-field appearance="fill">
                 <mat-label>id</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="indirizzoSedeLegale.comune.provincia.id">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>nome</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeLegale.comune.provincia.nome">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>sigla</mat-label>
-                <input matInput type="text">
+                <input matInput ngModel type="text" name="indirizzoSedeLegale.comune.provincia.sigla">
             </mat-form-field>
 
             <br>
 
             <mat-form-field appearance="fill">
                 <mat-label>data inserimento</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="dataInserimento">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>data ultimo contatto</mat-label>
-                <input matInput type="number">
+                <input matInput ngModel type="number" name="dataUltimoContatto">
             </mat-form-field>
 
             <button mat-button type="submit">Submit</button>

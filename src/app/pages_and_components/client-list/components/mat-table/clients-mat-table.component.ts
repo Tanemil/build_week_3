@@ -7,7 +7,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
 import { IClientsData } from '../../interfaces/iclients-data';
-import { ClientsService } from '../../services/clients.service';
 
 @Component({
   selector: 'app-clients-mat-table',
@@ -27,7 +26,6 @@ export class ClientsMatTableComponent implements AfterViewInit {
   clients: IClientsData[] = [];
 
   constructor(
-    private clientsServ: ClientsService,
     private authService: AuthService,
     private router: Router,
     private http: HttpClient
@@ -43,7 +41,7 @@ export class ClientsMatTableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
 
-    this.clientsServ.getAllClientsS();
+    this.getAllClients();
   }
 
   applyFilter(event: Event) {
@@ -56,6 +54,10 @@ export class ClientsMatTableComponent implements AfterViewInit {
   }
 
   /* --------------------------------------- */
+
+  getAllClients() {
+    this.authService.getAllClientsS();
+  }
 
   /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati
       this.clientsServ.add_client(this.form.value).subscribe(
