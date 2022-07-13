@@ -16,7 +16,7 @@ export class AuthService {
   private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
   error = undefined;
-  clients: IClientsData[] = [];
+  /*   clients: IClientsData[] = []; */
 
   constructor(private http: HttpClient, private router: Router) {
     this.restoreUserLogin();

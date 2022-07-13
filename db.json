@@ -22,6 +22,52 @@
       "id": 3
     }
   ],
-  "clients": [],
+  "clients": [
+    {
+      "ragioneSociale": "Voluptatem expedita",
+      "partitaIva": 67,
+      "tipoCliente": "Incididunt pariatur",
+      "email": "vatakejav@mailinator.com",
+      "pec": "Qui sapiente maiores",
+      "telefono": 2,
+      "nomeContatto": "Exercitationem offic",
+      "cognomeContatto": "Dolor proident maxi",
+      "telefonoContatto": 42,
+      "emailContatto": "wufa@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Voluptatem exceptur",
+        "civico": 16,
+        "cap": 93,
+        "localita": "Vel voluptate sint v",
+        "comune": {
+          "id": 26,
+          "nome": "Iusto numquam minima",
+          "provincia": {
+            "id": 4,
+            "nome": "Sint cum velit inve",
+            "sigla": "Inventore molestias "
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Exercitation volupta",
+        "civico": 43,
+        "cap": 53,
+        "localita": "Sint laborum Beatae",
+        "comune": {
+          "id": 18,
+          "nome": "Aperiam et nihil off",
+          "provincia": {
+            "id": 56,
+            "nome": "Harum iure sint volu",
+            "sigla": "Iusto error non reru"
+          }
+        }
+      },
+      "dataInserimento": 38,
+      "dataUltimoContatto": 61,
+      "id": 1
+    }
+  ],
   "taxes": []
 }
