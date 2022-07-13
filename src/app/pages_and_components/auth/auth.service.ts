@@ -5,6 +5,7 @@ import { BehaviorSubject, tap } from 'rxjs';
 import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { IClientsData } from '../client-list/interfaces/iclients-data';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,10 @@ export class AuthService {
     this.authSubject.next(null);
     localStorage.removeItem('isAuthenticated');
     this.router.navigate(['/login']);
+  }
+
+  add_client(obj: IClientsData) {
+    return this.http.post(this.urlJsonServer + '/clients', obj);
   }
 
 }
