@@ -1,1 +1,178 @@
-<p>client-list works!</p>
+
+<div class="container">
+  <app-clients-mat-table></app-clients-mat-table>
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <mat-expansion-panel class="mt-5 mb-5" (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Form aggiungi cliente
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="container_input_field">
+        <mat-form-field appearance="fill">
+          <mat-label>ragione sociale</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>partita Iva</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>tipo cliente</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>email</mat-label>
+          <input matInput type="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>pec</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>telefono</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>nome contatto</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>cognome contatto</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>email contatto</mat-label>
+          <input matInput type="email">
+        </mat-form-field>
+
+        <h2>indirizzo sede operativa</h2>
+
+        <mat-form-field appearance="fill">
+          <mat-label>via</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>civico</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>cap</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>localita'</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <h3>comune</h3>
+
+        <mat-form-field appearance="fill">
+          <mat-label>id</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>nome</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <h4>provincia</h4>
+
+        <mat-form-field appearance="fill">
+          <mat-label>id</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>nome</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>sigla</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <h2>indirizzo sede legale</h2>
+
+        <mat-form-field appearance="fill">
+          <mat-label>via</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>civico</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>cap</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>localita'</mat-label>
+          <input matInput type="string">
+        </mat-form-field>
+
+        <h3>comune</h3>
+
+        <mat-form-field appearance="fill">
+          <mat-label>id</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>nome</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <h4>provincia</h4>
+
+        <mat-form-field appearance="fill">
+          <mat-label>id</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>nome</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>sigla</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>data inserimento</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>data ultimo contatto</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+
+        <button mat-button type="submit">Submit</button>
+
+      </div>
+    </mat-expansion-panel>
+
+  </form>
+</div>
