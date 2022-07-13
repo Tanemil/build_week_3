@@ -8,10 +8,17 @@
       "id": 1
     },
     {
+<<<<<<< HEAD
+      "email": "abcd@ab.cd",
+      "password": "$2a$10$pwIPi6.Xs22CnrwK5fY4WOPH3XEu0xuMMWyBfMSYFCx0EX5PabIWW",
+      "firstname": "ab",
+      "lastname": "cd",
+=======
       "email": "abc@gmail.com",
       "password": "$2a$10$0dNUb2hBEzf1NvcXvQUviOWUD4qhITo58f79zQJb9Jd6zU7APjB2O",
       "firstname": "Gianluca",
       "lastname": "Gallone",
+>>>>>>> 635f1084905935711ae2700e5d3b1c1163b8f048
       "id": 2
     }
   ],
