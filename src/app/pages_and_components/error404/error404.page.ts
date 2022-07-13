@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-error404',
-  templateUrl: './error404.component.html',
-  styleUrls: ['./error404.component.scss']
+  templateUrl: './error404.page.html',
+  styleUrls: ['./error404.page.scss']
 })
-export class Error404Component implements OnInit {
+export class Error404Page implements OnInit {
 
   constructor() { }
 

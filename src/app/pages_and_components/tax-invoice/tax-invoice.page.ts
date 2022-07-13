@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tax-invoice',
-  templateUrl: './tax-invoice.component.html',
-  styleUrls: ['./tax-invoice.component.scss']
+  templateUrl: './tax-invoice.page.html',
+  styleUrls: ['./tax-invoice.page.scss']
 })
-export class TaxInvoiceComponent implements OnInit {
+export class TaxInvoicePage implements OnInit {
 
   constructor() { }
 
