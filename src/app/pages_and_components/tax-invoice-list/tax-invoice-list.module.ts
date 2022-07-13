@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TaxInvoiceListRoutingModule } from './tax-invoice-list-routing.module';
-import { TaxInvoiceListComponent } from './tax-invoice-list.component';
+import { TaxInvoiceListPage } from './tax-invoice-list.page';
 
 
 @NgModule({
   declarations: [
-    TaxInvoiceListComponent
+    TaxInvoiceListPage
   ],
   imports: [
     CommonModule,

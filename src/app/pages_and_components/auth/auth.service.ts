@@ -11,7 +11,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  //private loggedIn = false;
   authSubject = new BehaviorSubject<IAuthData | null>(null);
   private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
@@ -20,15 +19,11 @@ export class AuthService {
     this.restoreUserLogin();
   }
 
-  /* isAuthenticated(): boolean {
-    return this.loggedIn;
-  } */
-
   restoreUserLogin() {
     const json = localStorage.getItem('isAuthenticated');
-    if(json) {
+    if (json) {
       const user = JSON.parse(json);
-      if(this.helper.isTokenExpired(user.accessToken)) {
+      if (this.helper.isTokenExpired(user.accessToken)) {
         localStorage.removeItem('isAuthenticated');
         return
       } else {
@@ -38,9 +33,7 @@ export class AuthService {
   }
 
   login(obj: ISignupData) {
-    //this.loggedIn = true;
-    return this.http.post<IAuthData>(this.urlJsonServer+'/login', obj).pipe(
-      /* tap(ele => console.log(ele)), */
+    return this.http.post<IAuthData>(this.urlJsonServer + '/login', obj).pipe(
       tap(data => {
         this.authSubject.next(data);
         localStorage.setItem('isAuthenticated', JSON.stringify(data));
@@ -49,12 +42,10 @@ export class AuthService {
   }
 
   signup(obj: ISignupData) {
-    return this.http.post(this.urlJsonServer+'/register', obj);
+    return this.http.post(this.urlJsonServer + '/register', obj);
   }
 
   logout() {
-    /* this.loggedIn = false; */
-    console.log('Logout')
     this.authSubject.next(null);
     localStorage.removeItem('isAuthenticated');
     this.router.navigate(['/login']);
