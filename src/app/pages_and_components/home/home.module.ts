@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
+import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { HomePage } from './home.page';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class HomeModule { }
