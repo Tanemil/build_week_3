@@ -13,17 +13,22 @@ import { ClientsService } from '../../services/clients.service';
 })
 export class ClientsMatFormComponent implements OnInit {
 
+  @ViewChild('f') form!: NgForm;
+  clients: IClientsData[] = [];
+  hide = true;
+  error = undefined;
   panelOpenState = false;
 
-  @ViewChild('f') form!: NgForm;
-  error = undefined;
-  hide = true;
-
-  constructor(private clientsServ: ClientsService, private router: Router, private http: HttpClient) { }
+  constructor(
+    private authService: AuthService,
+    private clientsServ: ClientsService,
+    private router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void { }
 
   onSubmit() {
+
     this.clientsServ.add_client(this.form.value).subscribe(
       resp => {
         console.log(resp);
@@ -35,23 +40,5 @@ export class ClientsMatFormComponent implements OnInit {
       }
     )
   }
-
-  /*   getAllClients() {
-      console.log('Chiamata Ajax al server')
-      this.authService.authSubject.subscribe(userPosts => {
-  
-        this.http.get<IClientsData[]>('http://localhost:4201/clients', {
-          headers: new HttpHeaders({ "Authorization": "Bearer " + userPosts?.accessToken })
-        })
-          .subscribe(
-            resp => {
-              this.clients = resp;
-            },
-            err => {
-              this.error = err.error
-            }
-          )
-      })
-    } */
 
 }

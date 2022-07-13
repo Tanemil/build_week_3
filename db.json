@@ -13,11 +13,30 @@
       "firstname": "Gianluca",
       "lastname": "Gallone",
       "id": 2
+    },
+    {
+      "email": "cloud.gianluca@gmail.com",
+      "password": "$2a$10$m1sCpJaPur.Khgjbpn6xLOiLQ52H5.1X2hRrE4lQe9D3ssCLt7wfa",
+      "firstname": "Gianluca",
+      "lastname": "Gallone",
+      "id": 3
     }
   ],
   "clients": [
     {
       "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
     }
   ],
   "taxes": []

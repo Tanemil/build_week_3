@@ -42,6 +42,8 @@ export class ClientsMatTableComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+    this.clientsServ.getAllClientsS();
   }
 
   applyFilter(event: Event) {
@@ -55,18 +57,17 @@ export class ClientsMatTableComponent implements AfterViewInit {
 
   /* --------------------------------------- */
 
-  onSubmit() {
-    this.clientsServ.postClientS(this.form.value).subscribe(
-      resp => {
-        this.error = undefined;
-        this.router.navigate(['/tax_invoice_list']);
-      },
-      err => {
-        this.error = err.error;
-      }
-    )
-    this.clientsServ.getClientS();
-  }
+  /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati
+      this.clientsServ.add_client(this.form.value).subscribe(
+        resp => {
+          this.error = undefined;
+          this.router.navigate(['/tax_invoice_list']);
+        },
+        err => {
+          this.error = err.error;
+        }
+      )
+    } */
 
 
 

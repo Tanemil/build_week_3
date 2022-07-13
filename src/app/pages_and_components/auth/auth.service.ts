@@ -1,11 +1,10 @@
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap } from 'rxjs';
 import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { IClientsData } from '../client-list/interfaces/iclients-data';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,7 @@ export class AuthService {
   authSubject = new BehaviorSubject<IAuthData | null>(null);
   private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
+  error = undefined;
 
   constructor(private http: HttpClient, private router: Router) {
     this.restoreUserLogin();
