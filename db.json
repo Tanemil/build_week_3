@@ -6,6 +6,13 @@
       "firstname": "Tanemil",
       "lastname": "fdsfsd",
       "id": 1
+    },
+    {
+      "email": "abcd@ab.cd",
+      "password": "$2a$10$pwIPi6.Xs22CnrwK5fY4WOPH3XEu0xuMMWyBfMSYFCx0EX5PabIWW",
+      "firstname": "ab",
+      "lastname": "cd",
+      "id": 2
     }
   ]
 }
