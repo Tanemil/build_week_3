@@ -5,6 +5,7 @@ import { BehaviorSubject, tap } from 'rxjs';
 import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { IClientsData } from '../client-list/interfaces/iclients-data';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class AuthService {
   private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
   error = undefined;
+  clients: IClientsData[] = [];
 
   constructor(private http: HttpClient, private router: Router) {
     this.restoreUserLogin();
@@ -50,6 +52,32 @@ export class AuthService {
     this.authSubject.next(null);
     localStorage.removeItem('isAuthenticated');
     this.router.navigate(['/login']);
+  }
+
+  /* ---------------------------- */
+
+  /* ----- Post & Get nel db.json (dentro clients) ----- */
+
+  getAllClientsS() {
+    this.authSubject.subscribe(client => {
+      this.http.get<IClientsData[]>('http://localhost:4201/clients', {
+        headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
+      })
+        .subscribe(
+          resp => {
+            // tramite la risposta del get, inserisce i dati dal db, nell'array clients
+            this.clients = resp;
+          },
+          err => {
+            this.error = err.error
+          }
+        )
+    })
+  }
+
+  /* aggiunge valori di ritorno del form, al db */
+  add_client(obj: IClientsData) {
+    return this.http.post(this.urlJsonServer + '/clients', obj);
   }
 
 }
