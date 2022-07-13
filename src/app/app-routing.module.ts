@@ -24,11 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages_and_components/client-list/client-list.module').then(m => m.ClientListModule)
   },
   {
-    path: 'tax_invoice',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages_and_components/tax-invoice/tax-invoice.module').then(m => m.TaxInvoiceModule)
-  },
-  {
     path: 'tax_invoice_list',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages_and_components/tax-invoice-list/tax-invoice-list.module').then(m => m.TaxInvoiceListModule)
@@ -39,7 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
