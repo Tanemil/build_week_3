@@ -1,4 +1,4 @@
-<form #f="ngForm" (ngSubmit)="onSubmit()">
+<form #f="ngForm" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
     <mat-expansion-panel class="mt-5 mb-5" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -8,166 +8,190 @@
         <div class="container_input_field">
             <mat-form-field appearance="fill">
                 <mat-label>ragione sociale</mat-label>
-                <input matInput ngModel type="text" name="ragioneSociale">
+                <input matInput type="text" formControlName="ragioneSociale">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>partita Iva</mat-label>
-                <input matInput ngModel type="number" name="partitaIva">
+                <input matInput type="number" formControlName="partitaIva">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>tipo cliente</mat-label>
-                <input matInput ngModel type="text" name="tipoCliente">
+                <input matInput type="text" formControlName="tipoCliente">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>email</mat-label>
-                <input matInput ngModel type="email" name="email">
+                <input matInput type="email" formControlName="email">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>pec</mat-label>
-                <input matInput ngModel type="text" name="pec">
+                <input matInput type="text" formControlName="pec">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>telefono</mat-label>
-                <input matInput ngModel type="number" name="telefono">
+                <input matInput type="number" formControlName="telefono">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>nome contatto</mat-label>
-                <input matInput ngModel type="text" name="nomeContatto">
+                <input matInput type="text" formControlName="nomeContatto">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>cognome contatto</mat-label>
-                <input matInput ngModel type="text" name="cognomeContatto">
+                <input matInput type="text" formControlName="cognomeContatto">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>telefono contatto</mat-label>
-                <input matInput ngModel type="number" name="telefonoContatto">
+                <input matInput type="number" formControlName="telefonoContatto">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>email contatto</mat-label>
-                <input matInput ngModel type="email" name="emailContatto">
+                <input matInput type="email" formControlName="emailContatto">
             </mat-form-field>
 
-            <h2>indirizzo sede operativa</h2>
+            <div formGroupName="indirizzoSedeOperativa">
 
-            <mat-form-field appearance="fill">
-                <mat-label>via</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeOperativa.via">
-            </mat-form-field>
+              <h2>indirizzo sede operativa</h2>
 
-            <mat-form-field appearance="fill">
-                <mat-label>civico</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeOperativa.civico">
-            </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>via</mat-label>
+                  <input matInput type="text" formControlName="via">
+              </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>cap</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeOperativa.cap">
-            </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>civico</mat-label>
+                  <input matInput type="number" formControlName="civico">
+              </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>localita'</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeOperativa.localita">
-            </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>cap</mat-label>
+                  <input matInput type="number" formControlName="cap">
+              </mat-form-field>
 
-            <h3>comune</h3>
+              <mat-form-field appearance="fill">
+                  <mat-label>localita'</mat-label>
+                  <input matInput type="text" formControlName="localita">
+              </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>id</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeOperativa.comune.id">
-            </mat-form-field>
+              <div formGroupName="comune">
 
-            <mat-form-field appearance="fill">
-                <mat-label>nome</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeOperativa.comune.nome">
-            </mat-form-field>
+                <h3>comune</h3>
 
-            <h4>provincia</h4>
+                <mat-form-field appearance="fill">
+                    <mat-label>id</mat-label>
+                    <input matInput type="number" formControlName="id">
+                </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>id</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeOperativa.comune.provincia.id">
-            </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>nome</mat-label>
+                    <input matInput type="text" formControlName="nome">
+                </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>nome</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeOperativa.comune.provincia.nome">
-            </mat-form-field>
+                <div formGroupName="provincia">
 
-            <mat-form-field appearance="fill">
-                <mat-label>sigla</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeOperativa.comune.provincia.sigla">
-            </mat-form-field>
+                  <h4>provincia</h4>
 
-            <h2>indirizzo sede legale</h2>
+                  <mat-form-field appearance="fill">
+                      <mat-label>id</mat-label>
+                      <input matInput type="number" formControlName="id" >
+                  </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>via</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeLegale.via">
-            </mat-form-field>
+                  <mat-form-field appearance="fill">
+                      <mat-label>nome</mat-label>
+                      <input matInput type="text" formControlName="nome">
+                  </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>civico</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeLegale.civico">
-            </mat-form-field>
+                  <mat-form-field appearance="fill">
+                      <mat-label>sigla</mat-label>
+                      <input matInput type="text" formControlName="sigla">
+                  </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>cap</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeLegale.cap">
-            </mat-form-field>
+                </div>
 
-            <mat-form-field appearance="fill">
-                <mat-label>localita'</mat-label>
-                <input matInput ngModel type="string" name="indirizzoSedeLegale.localita">
-            </mat-form-field>
+              </div>
 
-            <h3>comune</h3>
+            </div>
 
-            <mat-form-field appearance="fill">
-                <mat-label>id</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeLegale.comune.id">
-            </mat-form-field>
+            <div formGroupName="indirizzoSedeLegale">
 
-            <mat-form-field appearance="fill">
-                <mat-label>nome</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeLegale.comune.nome">
-            </mat-form-field>
+              <h2>indirizzo sede legale</h2>
 
-            <h4>provincia</h4>
+              <mat-form-field appearance="fill">
+                  <mat-label>via</mat-label>
+                  <input matInput type="text" formControlName="via">
+              </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>id</mat-label>
-                <input matInput ngModel type="number" name="indirizzoSedeLegale.comune.provincia.id">
-            </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>civico</mat-label>
+                  <input matInput type="number" formControlName="civico">
+              </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>nome</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeLegale.comune.provincia.nome">
-            </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>cap</mat-label>
+                  <input matInput type="number" formControlName="cap">
+              </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <mat-label>sigla</mat-label>
-                <input matInput ngModel type="text" name="indirizzoSedeLegale.comune.provincia.sigla">
-            </mat-form-field>
+              <mat-form-field appearance="fill">
+                  <mat-label>localita'</mat-label>
+                  <input matInput type="text" formControlName="localita">
+              </mat-form-field>
+
+              <div formGroupName="comune">
+
+                <h3>comune</h3>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>id</mat-label>
+                    <input matInput type="number" formControlName="id">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>nome</mat-label>
+                    <input matInput type="text" formControlName="nome">
+                </mat-form-field>
+
+                <div formGroupName="provincia">
+
+                  <h4>provincia</h4>
+
+                  <mat-form-field appearance="fill">
+                      <mat-label>id</mat-label>
+                      <input matInput type="number" formControlName="id" >
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                      <mat-label>nome</mat-label>
+                      <input matInput type="text" formControlName="nome">
+                  </mat-form-field>
+
+                  <mat-form-field appearance="fill">
+                      <mat-label>sigla</mat-label>
+                      <input matInput type="text" formControlName="sigla">
+                  </mat-form-field>
+
+                </div>
+
+              </div>
+
+            </div>
 
             <br>
 
             <mat-form-field appearance="fill">
                 <mat-label>data inserimento</mat-label>
-                <input matInput ngModel type="number" name="dataInserimento">
+                <input matInput type="number" formControlName="dataInserimento">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>data ultimo contatto</mat-label>
-                <input matInput ngModel type="number" name="dataUltimoContatto">
+                <input matInput type="number" formControlName="dataUltimoContatto">
             </mat-form-field>
 
             <button mat-button type="submit">Submit</button>
