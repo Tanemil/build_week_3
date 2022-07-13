@@ -56,27 +56,6 @@ export class AuthService {
 
   /* ---------------------------- */
 
-  /* ----- Post & Get nel db.json (dentro clients) ----- */
-
-  getAllClientsS() {
-    this.authSubject.subscribe(client => {
-      this.http.get<IClientsData[]>('http://localhost:4201/clients', {
-        headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
-      })
-        .subscribe(
-          resp => {
-            // tramite la risposta del get, inserisce i dati dal db, nell'array clients
-            console.log(resp);
-            this.clients = resp;
-          },
-          err => {
-            console.log(err);
-            this.error = err.error
-          }
-        )
-    })
-  }
-
   /* aggiunge valori di ritorno del form, al db */
   add_client(obj: IClientsData) {
     return this.http.post(this.urlJsonServer + '/clients', obj);
