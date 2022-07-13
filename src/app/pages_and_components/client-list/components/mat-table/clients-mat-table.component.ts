@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -14,7 +14,7 @@ import { IClientsData } from '../../interfaces/iclients-data';
   styleUrls: ['./clients-mat-table.component.scss']
 })
 
-export class ClientsMatTableComponent implements AfterViewInit {
+export class ClientsMatTableComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'p.iva', 'email', 'tel'];
   dataSource: MatTableDataSource<IClientsData>;
 
@@ -25,6 +25,28 @@ export class ClientsMatTableComponent implements AfterViewInit {
   error = undefined;
   clients: IClientsData[] = [];
 
+
+  /*   export interface Employee {
+      typeOfEmployee_id: number;
+      department_id: number;
+      permissions_id: number;
+      maxWorkHours: number;
+      employee_id: number;
+      firstname: string;
+      lastname: string;
+      username: string;
+      birthdate: Date;
+      lastUpdate: Date;
+  }
+  
+  let jsonObj: any = JSON.parse(employeeString); // string to generic object first
+  let employee: Employee = <Employee>jsonObj;
+   */
+
+
+
+
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -34,14 +56,15 @@ export class ClientsMatTableComponent implements AfterViewInit {
     /* const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1)); */
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(this.clients);
+    this.dataSource = new MatTableDataSource(this.getAllClients());
+  }
+  ngOnInit(): void {
+
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-
-    this.getAllClients();
   }
 
   applyFilter(event: Event) {
@@ -53,10 +76,32 @@ export class ClientsMatTableComponent implements AfterViewInit {
     }
   }
 
-  /* --------------------------------------- */
+  /* ----- Post & Get nel db.json (dentro clients) ----- */
 
-  getAllClients() {
-    this.authService.getAllClientsS();
+  getAllClients(): any {
+    this.authService.authSubject.subscribe(client => {
+      this.http.get<IClientsData[]>('http://localhost:4201/clients', {
+        headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
+      })
+        .subscribe(
+          resp => {
+            // tramite la risposta del get, inserisce i dati dal db, nell'array clients
+            //console.log(resp);
+            //this.clients = resp;
+
+            //let jsonObj: any = JSON.parse(resp); // string to generic object first
+            let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
+            this.clients = parseRes;
+            console.log(resp, parseRes);
+
+            console.log(this.clients[0]);
+          },
+          err => {
+            console.log(err);
+            this.error = err.error
+          }
+        )
+    })
   }
 
   /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati

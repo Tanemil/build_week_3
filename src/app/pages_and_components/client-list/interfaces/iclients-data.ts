@@ -1,5 +1,5 @@
 export interface IClientsData {
-    "ragioneSociale"?: string,
+    ragioneSociale: string,
     "partitaIva"?: number,
     "tipoCliente"?: string,
     "email"?: string,
