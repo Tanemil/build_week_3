@@ -52,8 +52,4 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  add_client(obj: IClientsData) {
-    return this.http.post(this.urlJsonServer + '/clients', obj);
-  }
-
 }

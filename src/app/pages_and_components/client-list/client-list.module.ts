@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ClientListRoutingModule } from './client-list-routing.module';
 import { ClientListPage } from './client-list.page';
 import { ClientsMatTableComponent } from '../client-list/components/mat-table/clients-mat-table.component';
+import { ClientsMatFormComponent } from './components/mat-form/clients-mat-form.component';
 
 /* ---------- Material ---------- */
 import { MatTableModule } from '@angular/material/table';
@@ -16,10 +17,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
+
 @NgModule({
   declarations: [
     ClientListPage,
-    ClientsMatTableComponent
+    ClientsMatTableComponent,
+    ClientsMatFormComponent
   ],
   imports: [
     CommonModule,

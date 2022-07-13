@@ -44,4 +44,8 @@ export class ClientsService {
     })
   }
 
+  add_client(obj: IClientsData) {
+    return this.http.post(this.urlJsonServer + '/clients', obj);
+  }
+
 }
