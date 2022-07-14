@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
 import { IClientsData } from '../../interfaces/iclients-data';
 import { ActualClientIdService } from '../../../actual-client-id.service'
@@ -16,7 +15,7 @@ import { ActualClientIdService } from '../../../actual-client-id.service'
 })
 
 export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChanges {
-  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email', 'bottone'];
+  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email', 'removeClient', 'viewInvoices'];
   clients: IClientsData[] = [];
   dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
 
@@ -26,22 +25,13 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   @ViewChild('f') form!: NgForm;
   error = undefined;
 
-
   constructor(
     private authService: AuthService,
-    private router: Router,
     private http: HttpClient,
-    private actual_id:ActualClientIdService
-  ) {
-    // Create 100 users
-    /* const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1)); */
+    private actual_id: ActualClientIdService) { }
 
-    // Assign the data to the data source for the table to render
-    /* this.dataSource = new MatTableDataSource(this.clients); */
-    /*  this.dataSource = this.getAllClients() */
-  }
   ngOnInit(): void {
-    this.getAllClients()
+    this.getAllClients();
   }
 
   ngOnChanges(): void {
@@ -71,59 +61,47 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
       })
         .subscribe(
           resp => {
-            // tramite la risposta del get, inserisce i dati dal db, nell'array clients
-            //console.log(resp);
-            //this.clients = resp;
-
-            //let jsonObj: any = JSON.parse(resp); // string to generic object first
             let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
             this.clients = parseRes;
             this.dataSource = new MatTableDataSource(this.clients)
             console.log(this.clients, resp, parseRes);
-
           },
           err => {
             console.log(err);
             this.error = err.error
           }
         )
-
     })
   }
 
-  set_acual_id(id:number){
-    this.actual_id.changeState(id)
+  getAfterDelete() {
+    this.authService.authSubject.subscribe(client => {
+      this.http.get<IClientsData[]>('http://localhost:4201/clients', {
+        headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
+      })
+        .subscribe(
+          resp => {
+            let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
+            this.clients = parseRes;
+            this.dataSource = new MatTableDataSource(this.clients)
+            console.log(this.clients, resp, parseRes);
+          },
+          err => {
+            console.log(err);
+            this.error = err.error
+          }
+        )
+    })
   }
 
-  /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati
-      this.clientsServ.add_client(this.form.value).subscribe(
-        resp => {
-          this.error = undefined;
-          this.router.navigate(['/tax_invoice_list']);
-        },
-        err => {
-          this.error = err.error;
-        }
-      )
-    } */
+  removeClient(id: number): void {
+    this.authService.removeClientS(id).subscribe();
+    this.getAfterDelete();
+  }
 
-
+  set_acual_id(id: number) {
+    this.actual_id.changeState(id);
+  }
 
 }
-
-/** Builds and returns a new User. */
-/* function createNewUser(id: number): IClientsData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-  };
-} */
 

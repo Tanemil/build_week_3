@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -57,6 +57,17 @@ export class AuthService {
 
   /* ---------------------------- */
 
+  removeClientS(id: number): Observable<Object> {
+
+    return this.http.delete('http://localhost:4201/clients/' + id);
+
+    /*     this.authSubject.subscribe(client => {
+          this.http.delete('http://localhost:4201/clients/' + id, {
+            headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
+          })
+        }) */
+  }
+
   /* aggiunge valori di ritorno del form, al db */
   add_client(obj: IClientsData) {
     return this.http.post(this.urlJsonServer + '/clients', obj);
@@ -65,4 +76,5 @@ export class AuthService {
   add_taxes(obj: ITaxesData) {
     return this.http.post(this.urlJsonServer + '/taxes', obj);
   }
+
 }

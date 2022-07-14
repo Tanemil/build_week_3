@@ -11,7 +11,7 @@ import { ActualClientIdService } from '../../..//actual-client-id.service'
 })
 export class InvoicesMatFormComponent implements OnInit {
 
-  client_id!:number
+  client_id!: number
 
   @ViewChild('f') form!: NgForm;
   hide = true;
@@ -22,20 +22,20 @@ export class InvoicesMatFormComponent implements OnInit {
     data: new FormControl(),
     numero: new FormControl(),
     anno: new FormControl(),
-    importo : new FormControl(),
-    stato : new FormGroup({
+    importo: new FormControl(),
+    stato: new FormGroup({
       id: new FormControl(),
-      nome : new FormControl(),
+      nome: new FormControl(),
     }),
-    cliente : new FormGroup({
-      id : new FormControl()
+    cliente: new FormGroup({
+      id: new FormControl()
     })
   });
 
   constructor(
     private authService: AuthService,
-    private actual_client:ActualClientIdService
-    ) { }
+    private actual_client: ActualClientIdService
+  ) { }
 
   ngOnInit(): void {
     this.get_actual_client_id()
@@ -43,8 +43,8 @@ export class InvoicesMatFormComponent implements OnInit {
   }
 
   onSubmit() {
-
-    console.log('submit',this.client_id)
+    this.ngOnInit();
+    console.log('submit', this.client_id)
 
     this.authService.add_taxes(this.form.value).subscribe(
       resp => {
@@ -64,7 +64,7 @@ export class InvoicesMatFormComponent implements OnInit {
     window.location.reload();
   }
 
-  get_actual_client_id(){
+  get_actual_client_id() {
     this.actual_client.getState().subscribe(resp => {
       console.log(resp);
       this.client_id = resp

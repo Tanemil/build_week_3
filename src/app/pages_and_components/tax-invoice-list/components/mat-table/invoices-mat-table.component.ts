@@ -39,22 +39,23 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
     /*  this.dataSource = this.getAllClients() */
   }
   ngOnInit(): void {
-    this.getAllInvoices()
+    this.getAllInvoices();
+    this.dataSource = new MatTableDataSource(this.invoices);
   }
 
   ngOnChanges(): void {
-/*     this.getAllInvoices()
-    this.dataSource = new MatTableDataSource(this.invoices); */
+    /*     this.getAllInvoices()
+        this.dataSource = new MatTableDataSource(this.invoices); */
   }
 
-  ngDoCheck(): void{
-/*     if (this.invoices.length > this.getAllInvoices().lenght){
-      this.getAllInvoices()
-      this.dataSource = new MatTableDataSource(this.invoices);
-      controllo = this.invoices.length
-    } */
-/*     this.getAllInvoices()
-    this.dataSource = new MatTableDataSource(this.invoices); */
+  ngDoCheck(): void {
+    /*     if (this.invoices.length > this.getAllInvoices().lenght){
+          this.getAllInvoices()
+          this.dataSource = new MatTableDataSource(this.invoices);
+          controllo = this.invoices.length
+        } */
+    /*     this.getAllInvoices()
+        this.dataSource = new MatTableDataSource(this.invoices); */
   }
 
   ngAfterViewInit() {

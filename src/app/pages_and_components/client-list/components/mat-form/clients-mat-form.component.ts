@@ -16,52 +16,51 @@ export class ClientsMatFormComponent implements OnInit {
   panelOpenState = false;
 
   clientForm = new FormGroup({
-    ragioneSociale : new FormControl(''),
-    partitaIva : new FormControl(''),
-    tipoCliente : new FormControl(''),
-    email : new FormControl(''),
-    pec : new FormControl(''),
-    telefono : new FormControl(''),
-    nomeContatto : new FormControl(''),
-    cognomeContatto : new FormControl(''),
-    telefonoContatto : new FormControl(''),
-    emailContatto : new FormControl(''),
-    indirizzoSedeOperativa : new FormGroup({
-      via : new FormControl(''),
-      civico : new FormControl(''),
-      cap : new FormControl(''),
-      localita : new FormControl(''),
-      comune : new FormGroup({
-        id : new FormControl(''),
-        nome : new FormControl(''),
-        provincia : new FormGroup({
-          id : new FormControl(''),
-          nome : new FormControl(''),
-          sigla : new FormControl('')
+    ragioneSociale: new FormControl(''),
+    partitaIva: new FormControl(''),
+    tipoCliente: new FormControl(''),
+    email: new FormControl(''),
+    pec: new FormControl(''),
+    telefono: new FormControl(''),
+    nomeContatto: new FormControl(''),
+    cognomeContatto: new FormControl(''),
+    telefonoContatto: new FormControl(''),
+    emailContatto: new FormControl(''),
+    indirizzoSedeOperativa: new FormGroup({
+      via: new FormControl(''),
+      civico: new FormControl(''),
+      cap: new FormControl(''),
+      localita: new FormControl(''),
+      comune: new FormGroup({
+        id: new FormControl(''),
+        nome: new FormControl(''),
+        provincia: new FormGroup({
+          id: new FormControl(''),
+          nome: new FormControl(''),
+          sigla: new FormControl('')
         })
       })
     }),
-    indirizzoSedeLegale : new FormGroup({
-      via : new FormControl(''),
-      civico : new FormControl(''),
-      cap : new FormControl(''),
-      localita : new FormControl(''),
-      comune : new FormGroup({
-        id : new FormControl(''),
-        nome : new FormControl(''),
-        provincia : new FormGroup({
-          id : new FormControl(''),
-          nome : new FormControl(''),
-          sigla : new FormControl('')
+    indirizzoSedeLegale: new FormGroup({
+      via: new FormControl(''),
+      civico: new FormControl(''),
+      cap: new FormControl(''),
+      localita: new FormControl(''),
+      comune: new FormGroup({
+        id: new FormControl(''),
+        nome: new FormControl(''),
+        provincia: new FormGroup({
+          id: new FormControl(''),
+          nome: new FormControl(''),
+          sigla: new FormControl('')
         })
       })
     }),
-    dataInserimento : new FormControl(''),
-    dataUltimoContatto : new FormControl('')
+    dataInserimento: new FormControl(''),
+    dataUltimoContatto: new FormControl('')
   });
 
-  constructor(
-    private authService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void { }
 
@@ -77,8 +76,6 @@ export class ClientsMatFormComponent implements OnInit {
         this.error = err.error;
       }
     )
-
-
   }
 
   refresh(): void {

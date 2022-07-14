@@ -35,14 +35,25 @@
             <td mat-cell *matCellDef="let client"> {{client.email}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="bottone">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-          <td mat-cell *matCellDef="let client"> <a (click)="set_acual_id(client.id)" href="#" [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active">fatture</a> </td>
-      </ng-container>
+        <ng-container matColumnDef="removeClient">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <td mat-cell>
+                <button mat-button *matCellDef="let client" (click)="removeClient(client.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="viewInvoices">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <td mat-cell *matCellDef="let client">
+                <a mat-button (click)="set_acual_id(client.id)" href="#" [routerLink]="['/tax_invoice_list']"
+                    routerLinkActive="router-link-active"> Invoices</a>
+            </td>
+        </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
 
         <tr class="mat-row" *matNoDataRow>
             <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
