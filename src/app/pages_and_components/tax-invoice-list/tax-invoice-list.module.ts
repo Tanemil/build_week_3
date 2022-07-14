@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { TaxInvoiceListRoutingModule } from './tax-invoice-list-routing.module';
 import { TaxInvoiceListPage } from './tax-invoice-list.page';
-import { ClientsMatTableComponent } from './components/mat-table/clients-mat-table.component';
-import { ClientsMatFormComponent } from './components/mat-form/clients-mat-form.component';
+import { InvoicesMatTableComponent } from './components/mat-table/invoices-mat-table.component';
+import { InvoicesMatFormComponent } from './components/mat-form/invoices-mat-form.component';
 
 /* ---------- Material ---------- */
 import { MatTableModule } from '@angular/material/table';
@@ -22,8 +22,8 @@ import {MatSortModule} from '@angular/material/sort';
 @NgModule({
   declarations: [
     TaxInvoiceListPage,
-    ClientsMatTableComponent,
-    ClientsMatFormComponent
+    InvoicesMatFormComponent,
+    InvoicesMatTableComponent
   ],
   imports: [
     CommonModule,

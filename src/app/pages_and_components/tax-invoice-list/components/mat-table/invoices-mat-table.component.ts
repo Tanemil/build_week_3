@@ -1,22 +1,21 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild, OnChanges } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, OnChanges, DoCheck } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
-import { ActualClientIdService } from '../../../actual-client-id.service'
 import { ITaxesData } from 'src/app/pages_and_components/client-list/interfaces/itaxes-data';
 
 @Component({
-  selector: 'app-clients-mat-table',
-  templateUrl: './clients-mat-table.component.html',
-  styleUrls: ['./clients-mat-table.component.scss']
+  selector: 'app-invoices-mat-table',
+  templateUrl: './invoices-mat-table.component.html',
+  styleUrls: ['./invoices-mat-table.component.scss']
 })
 
-export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChanges {
-  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email', 'bottone'];
+export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChanges, DoCheck {
+  displayedColumns: string[] = ['id', 'data', 'numero', 'anno', 'importo'];
   invoices: ITaxesData[] = [];
   dataSource: MatTableDataSource<ITaxesData> = new MatTableDataSource(this.invoices);
 
@@ -31,7 +30,6 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
     private authService: AuthService,
     private router: Router,
     private http: HttpClient,
-    private actual_id:ActualClientIdService
   ) {
     // Create 100 users
     /* const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1)); */
@@ -41,11 +39,22 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
     /*  this.dataSource = this.getAllClients() */
   }
   ngOnInit(): void {
-    this.getAllClients()
+    this.getAllInvoices()
   }
 
   ngOnChanges(): void {
-    //this.dataSource = new MatTableDataSource(this.clients);
+/*     this.getAllInvoices()
+    this.dataSource = new MatTableDataSource(this.invoices); */
+  }
+
+  ngDoCheck(): void{
+/*     if (this.invoices.length > this.getAllInvoices().lenght){
+      this.getAllInvoices()
+      this.dataSource = new MatTableDataSource(this.invoices);
+      controllo = this.invoices.length
+    } */
+/*     this.getAllInvoices()
+    this.dataSource = new MatTableDataSource(this.invoices); */
   }
 
   ngAfterViewInit() {
@@ -64,7 +73,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
 
   /* ----- Post & Get nel db.json (dentro clients) ----- */
 
-  async getAllClients(): Promise<void> {
+  async getAllInvoices() {
     await this.authService.authSubject.subscribe(client => {
       this.http.get<ITaxesData[]>('http://localhost:4201/taxes', {
         headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
@@ -89,10 +98,6 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
         )
 
     })
-  }
-
-  set_acual_id(id:number){
-    this.actual_id.set_id(id)
   }
 
   /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati

@@ -1,4 +1,6 @@
 
+{{client_id}}
+
 <form #f="ngForm" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
     <mat-expansion-panel class="mt-5 mb-5" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
@@ -51,7 +53,7 @@
 
           </div>
 
-          <button (click)="refresh()" mat-button type="submit">Submit</button>
+          <button mat-button type="submit">Submit</button>
 
         </div>
 
