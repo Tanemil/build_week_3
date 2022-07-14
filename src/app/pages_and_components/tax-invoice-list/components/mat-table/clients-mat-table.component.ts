@@ -6,8 +6,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
-import { IClientsData } from '../../interfaces/iclients-data';
 import { ActualClientIdService } from '../../../actual-client-id.service'
+import { ITaxesData } from 'src/app/pages_and_components/client-list/interfaces/itaxes-data';
 
 @Component({
   selector: 'app-clients-mat-table',
@@ -17,8 +17,8 @@ import { ActualClientIdService } from '../../../actual-client-id.service'
 
 export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChanges {
   displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email', 'bottone'];
-  clients: IClientsData[] = [];
-  dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
+  invoices: ITaxesData[] = [];
+  dataSource: MatTableDataSource<ITaxesData> = new MatTableDataSource(this.invoices);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -66,7 +66,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
 
   async getAllClients(): Promise<void> {
     await this.authService.authSubject.subscribe(client => {
-      this.http.get<IClientsData[]>('http://localhost:4201/clients', {
+      this.http.get<ITaxesData[]>('http://localhost:4201/taxes', {
         headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
       })
         .subscribe(
@@ -76,10 +76,10 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
             //this.clients = resp;
 
             //let jsonObj: any = JSON.parse(resp); // string to generic object first
-            let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
-            this.clients = parseRes;
-            this.dataSource = new MatTableDataSource(this.clients)
-            console.log(this.clients, resp, parseRes);
+            let parseRes: ITaxesData[] = <ITaxesData[]><unknown>resp;
+            this.invoices = parseRes;
+            this.dataSource = new MatTableDataSource(this.invoices)
+            console.log(this.invoices, resp, parseRes);
 
           },
           err => {

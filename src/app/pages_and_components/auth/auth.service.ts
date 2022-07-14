@@ -6,6 +6,7 @@ import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IClientsData } from '../client-list/interfaces/iclients-data';
+import { ITaxesData } from '../client-list/interfaces/itaxes-data';
 
 @Injectable({
   providedIn: 'root'
@@ -61,4 +62,7 @@ export class AuthService {
     return this.http.post(this.urlJsonServer + '/clients', obj);
   }
 
+  add_taxes(obj: ITaxesData) {
+    return this.http.post(this.urlJsonServer + '/taxes', obj);
+  }
 }

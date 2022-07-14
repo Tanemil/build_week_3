@@ -67,7 +67,54 @@
       "dataInserimento": 38,
       "dataUltimoContatto": 61,
       "id": 1
+    },
+    {
+      "ragioneSociale": "Dolorem nemo quis co",
+      "partitaIva": 60,
+      "tipoCliente": "Quidem rerum ut quid",
+      "email": "kara@mailinator.com",
+      "pec": "Aut sint delectus e",
+      "telefono": 17,
+      "nomeContatto": "Reprehenderit at ev",
+      "cognomeContatto": "Iure aspernatur non ",
+      "telefonoContatto": 80,
+      "emailContatto": "rakora@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Reprehenderit labor",
+        "civico": 75,
+        "cap": 22,
+        "localita": "Amet similique mole",
+        "comune": {
+          "id": 30,
+          "nome": "Ut soluta adipisicin",
+          "provincia": {
+            "id": 18,
+            "nome": "Duis expedita sint e",
+            "sigla": "Soluta molestias sin"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Commodo consequat D",
+        "civico": 68,
+        "cap": 65,
+        "localita": "Et provident sunt ",
+        "comune": {
+          "id": 54,
+          "nome": "Expedita voluptatem ",
+          "provincia": {
+            "id": 8,
+            "nome": "Sit quo praesentium ",
+            "sigla": "Libero eum duis non "
+          }
+        }
+      },
+      "dataInserimento": 69,
+      "dataUltimoContatto": 39,
+      "id": 2
     }
   ],
-  "taxes": []
+  "taxes": [
+
+  ]
 }

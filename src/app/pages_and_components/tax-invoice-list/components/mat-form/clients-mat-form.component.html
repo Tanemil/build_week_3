@@ -1,0 +1,59 @@
+
+<form #f="ngForm" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <mat-expansion-panel class="mt-5 mb-5" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Form aggiungi fattura
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="container_input_field">
+
+          <mat-form-field appearance="fill">
+            <mat-label>data</mat-label>
+            <input matInput type="date" formControlName="data">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>numero</mat-label>
+            <input matInput type="number" formControlName="numero">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>anno</mat-label>
+            <input matInput type="number" formControlName="anno">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>importo</mat-label>
+            <input matInput type="number" formControlName="importo">
+          </mat-form-field>
+
+          <div formGroupName="stato">
+
+            <mat-form-field appearance="fill">
+              <mat-label>id</mat-label>
+              <input matInput type="number" formControlName="id">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>nome</mat-label>
+              <input matInput type="text" formControlName="nome">
+            </mat-form-field>
+
+          </div>
+
+          <div formGroupName="cliente">
+
+            <mat-form-field appearance="fill">
+              <mat-label>id</mat-label>
+              <input matInput type="number" formControlName="id" value={{client_id}} hidden>
+            </mat-form-field>
+
+          </div>
+
+          <button (click)="refresh()" mat-button type="submit">Submit</button>
+
+        </div>
+
+    </mat-expansion-panel>
+</form>
