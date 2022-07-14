@@ -87,7 +87,6 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
         )
 
     })
-    return this.clients
   }
 
   /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati
