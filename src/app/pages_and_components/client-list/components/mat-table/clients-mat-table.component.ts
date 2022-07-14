@@ -16,14 +16,15 @@ import { IClientsData } from '../../interfaces/iclients-data';
 
 export class ClientsMatTableComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email'];
-  dataSource: MatTableDataSource<IClientsData>;
+  clients: IClientsData[] = [];
+  dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   @ViewChild('f') form!: NgForm;
   error = undefined;
-  clients: IClientsData[] = [];
+
 
   constructor(
     private authService: AuthService,
@@ -34,17 +35,16 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit {
     /* const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1)); */
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(this.clients);
+    /* this.dataSource = new MatTableDataSource(this.clients); */
+    /*  this.dataSource = this.getAllClients() */
   }
   ngOnInit(): void {
-
+    this.getAllClients()
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getAllClients();
-    console.log(this.clients);
   }
 
   applyFilter(event: Event) {
@@ -58,8 +58,8 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit {
 
   /* ----- Post & Get nel db.json (dentro clients) ----- */
 
-  getAllClients(): any {
-    this.authService.authSubject.subscribe(client => {
+  async getAllClients(): Promise<void> {
+    await this.authService.authSubject.subscribe(client => {
       this.http.get<IClientsData[]>('http://localhost:4201/clients', {
         headers: new HttpHeaders({ "Authorization": "Bearer " + client?.accessToken })
       })
@@ -72,13 +72,16 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit {
             //let jsonObj: any = JSON.parse(resp); // string to generic object first
             let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
             this.clients = parseRes;
+            this.dataSource = new MatTableDataSource(this.clients)
             console.log(this.clients, resp, parseRes);
+
           },
           err => {
             console.log(err);
             this.error = err.error
           }
         )
+
     })
   }
 

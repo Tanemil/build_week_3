@@ -77,6 +77,13 @@ export class ClientsMatFormComponent implements OnInit {
         this.error = err.error;
       }
     )
+
+
+  }
+
+  refresh(): void {
+    window.location.reload();
   }
 
 }
+
