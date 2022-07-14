@@ -295,61 +295,6 @@
     }
   ],
   "taxes": [
-    {
-      "data": "2009-01-16",
-      "numero": 82,
-      "anno": 68,
-      "importo": 45,
-      "stato": {
-        "id": 74,
-        "nome": "Deleniti rerum fugia"
-      },
-      "cliente": {
-        "id": null
-      },
-      "id": 1
-    },
-    {
-      "data": "1977-04-22",
-      "numero": 62,
-      "anno": 44,
-      "importo": 76,
-      "stato": {
-        "id": 35,
-        "nome": "Asperiores tempore "
-      },
-      "cliente": {
-        "id": null
-      },
-      "id": 2
-    },
-    {
-      "data": "1984-10-13",
-      "numero": 20,
-      "anno": 76,
-      "importo": 4,
-      "stato": {
-        "id": 65,
-        "nome": "Minim eius doloribus"
-      },
-      "cliente": {
-        "id": 8
-      },
-      "id": 3
-    },
-    {
-      "data": "1994-02-24",
-      "numero": 7,
-      "anno": 72,
-      "importo": 25,
-      "stato": {
-        "id": 72,
-        "nome": "Autem sint perspicia"
-      },
-      "cliente": {
-        "id": null
-      },
-      "id": 4
-    }
+
   ]
 }

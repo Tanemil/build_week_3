@@ -19,16 +19,17 @@ export class InvoicesMatFormComponent implements OnInit {
   panelOpenState = false;
 
   clientForm = new FormGroup({
-    data: new FormControl(),
-    numero: new FormControl(),
-    anno: new FormControl(),
-    importo: new FormControl(),
+    data: new FormControl(''),
+    numero: new FormControl(''),
+    anno: new FormControl(''),
+    importo: new FormControl(''),
     stato: new FormGroup({
-      id: new FormControl(),
-      nome: new FormControl(),
+      id: new FormControl(''),
+      nome: new FormControl(''),
     }),
     cliente: new FormGroup({
-      id: new FormControl()
+      id: new FormControl(),
+
     })
   });
 
@@ -40,6 +41,7 @@ export class InvoicesMatFormComponent implements OnInit {
   ngOnInit(): void {
     this.get_actual_client_id()
     console.log('oninit')
+    this.clientForm.controls.cliente.controls.id.setValue(this.client_id)
   }
 
   onSubmit() {
