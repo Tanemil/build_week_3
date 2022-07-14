@@ -92,7 +92,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   }
 
   set_acual_id(id:number){
-    this.actual_id.set_id(id)
+    this.actual_id.changeState(id)
   }
 
   /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati

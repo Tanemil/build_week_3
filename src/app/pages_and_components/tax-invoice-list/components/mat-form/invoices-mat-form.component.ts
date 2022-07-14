@@ -5,13 +5,13 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ActualClientIdService } from '../../..//actual-client-id.service'
 
 @Component({
-  selector: 'app-clients-mat-form',
-  templateUrl: './clients-mat-form.component.html',
-  styleUrls: ['./clients-mat-form.component.scss']
+  selector: 'app-invoices-mat-form',
+  templateUrl: './invoices-mat-form.component.html',
+  styleUrls: ['./invoices-mat-form.component.scss']
 })
-export class ClientsMatFormComponent implements OnInit {
+export class InvoicesMatFormComponent implements OnInit {
 
-  client_id:number = this.actual_client.get_id()
+  client_id!:number
 
   @ViewChild('f') form!: NgForm;
   hide = true;
@@ -39,11 +39,12 @@ export class ClientsMatFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.get_actual_client_id()
+    console.log('oninit')
   }
 
   onSubmit() {
 
-    console.log('submit')
+    console.log('submit',this.client_id)
 
     this.authService.add_taxes(this.form.value).subscribe(
       resp => {
@@ -59,12 +60,16 @@ export class ClientsMatFormComponent implements OnInit {
   }
 
   refresh(): void {
-    this.actual_client.set_id(this.client_id)
+    this.actual_client.changeState(this.client_id)
     window.location.reload();
   }
 
   get_actual_client_id(){
-    this.client_id = this.actual_client.get_id()
+    this.actual_client.getState().subscribe(resp => {
+      console.log(resp);
+      this.client_id = resp
+    })
+
   }
 
 }

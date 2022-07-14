@@ -112,9 +112,263 @@
       "dataInserimento": 69,
       "dataUltimoContatto": 39,
       "id": 2
+    },
+    {
+      "ragioneSociale": "Necessitatibus quae ",
+      "partitaIva": 76,
+      "tipoCliente": "Quia aut consequatur",
+      "email": "fevilihe@mailinator.com",
+      "pec": "Amet facilis blandi",
+      "telefono": 68,
+      "nomeContatto": "Ea mollit ex et ea l",
+      "cognomeContatto": "Ratione non exceptur",
+      "telefonoContatto": 92,
+      "emailContatto": "catehiqi@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Ipsam pariatur Solu",
+        "civico": 19,
+        "cap": 40,
+        "localita": "In perspiciatis mol",
+        "comune": {
+          "id": 6,
+          "nome": "Magna reprehenderit ",
+          "provincia": {
+            "id": 41,
+            "nome": "Dolorum beatae fugia",
+            "sigla": "Sint provident irur"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Qui magnam qui illo ",
+        "civico": 52,
+        "cap": 27,
+        "localita": "Rem et deleniti nost",
+        "comune": {
+          "id": 60,
+          "nome": "Rerum pariatur Lore",
+          "provincia": {
+            "id": 73,
+            "nome": "Ut nihil veritatis a",
+            "sigla": "Labore Nam quis inci"
+          }
+        }
+      },
+      "dataInserimento": 86,
+      "dataUltimoContatto": 5,
+      "id": 3
     }
   ],
   "taxes": [
-
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 1
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 2
+    },
+    {
+      "data": "1971-02-21",
+      "numero": 3,
+      "anno": 12,
+      "importo": 51,
+      "stato": {
+        "id": 50,
+        "nome": "Facilis alias volupt"
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 3
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 4
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 5
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 6
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 7
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 8
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 9
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 10
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 11
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 12
+    },
+    {
+      "data": "2002-01-28",
+      "numero": 70,
+      "anno": 53,
+      "importo": 40,
+      "stato": {
+        "id": 76,
+        "nome": "Aut excepteur omnis "
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 13
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 14
+    },
+    {
+      "data": null,
+      "numero": null,
+      "anno": null,
+      "importo": null,
+      "stato": {
+        "id": null,
+        "nome": null
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 15
+    }
   ]
 }
