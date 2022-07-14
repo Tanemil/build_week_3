@@ -115,6 +115,19 @@
     }
   ],
   "taxes": [
-
+    {
+      "data": "2022-07-14",
+      "numero": 3432423,
+      "anno": 234424,
+      "importo": 412412,
+      "stato": {
+        "id": 12421,
+        "nome": "fdfbdfb"
+      },
+      "cliente": {
+        "id": null
+      },
+      "id": 1
+    }
   ]
 }
