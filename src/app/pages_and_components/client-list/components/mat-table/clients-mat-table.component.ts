@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -14,7 +14,7 @@ import { IClientsData } from '../../interfaces/iclients-data';
   styleUrls: ['./clients-mat-table.component.scss']
 })
 
-export class ClientsMatTableComponent implements OnInit, AfterViewInit {
+export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChanges {
   displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email'];
   clients: IClientsData[] = [];
   dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
@@ -40,6 +40,10 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit {
   }
   ngOnInit(): void {
     this.getAllClients()
+  }
+
+  ngOnChanges(): void {
+    //this.dataSource = new MatTableDataSource(this.clients);
   }
 
   ngAfterViewInit() {
@@ -83,6 +87,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit {
         )
 
     })
+    return this.clients
   }
 
   /*   onSubmit() { // reindirizzam. su tax_invoice_list e poi faro' un get dei dati

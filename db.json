@@ -24,229 +24,49 @@
   ],
   "clients": [
     {
-      "ragioneSociale": "Aliquip magnam est ",
-      "partitaIva": 75,
-      "tipoCliente": "Neque accusamus libe",
-      "email": "tumyhaq@mailinator.com",
-      "pec": "Sit repudiandae aut",
-      "telefono": 11,
-      "nomeContatto": "Alias rem facere ame",
-      "cognomeContatto": "Incidunt reiciendis",
-      "telefonoContatto": 9,
-      "emailContatto": "sine@mailinator.com",
+      "ragioneSociale": "Voluptatem expedita",
+      "partitaIva": 67,
+      "tipoCliente": "Incididunt pariatur",
+      "email": "vatakejav@mailinator.com",
+      "pec": "Qui sapiente maiores",
+      "telefono": 2,
+      "nomeContatto": "Exercitationem offic",
+      "cognomeContatto": "Dolor proident maxi",
+      "telefonoContatto": 42,
+      "emailContatto": "wufa@mailinator.com",
       "indirizzoSedeOperativa": {
-        "via": "Repellendus Est con",
-        "civico": 40,
-        "cap": 76,
-        "localita": "Beatae magnam quibus",
+        "via": "Voluptatem exceptur",
+        "civico": 16,
+        "cap": 93,
+        "localita": "Vel voluptate sint v",
         "comune": {
-          "id": 51,
-          "nome": "Voluptas eligendi op",
+          "id": 26,
+          "nome": "Iusto numquam minima",
           "provincia": {
-            "id": 61,
-            "nome": "Facilis natus nisi e",
-            "sigla": "Et voluptatibus vel "
+            "id": 4,
+            "nome": "Sint cum velit inve",
+            "sigla": "Inventore molestias "
           }
         }
       },
       "indirizzoSedeLegale": {
-        "via": "Sed ipsam labore lab",
-        "civico": 39,
-        "cap": 66,
-        "localita": "Culpa aspernatur di",
-        "comune": {
-          "id": 14,
-          "nome": "Aut eos amet aliqua",
-          "provincia": {
-            "id": 67,
-            "nome": "Ipsum autem architec",
-            "sigla": "Irure nemo sit eum "
-          }
-        }
-      },
-      "dataInserimento": 85,
-      "dataUltimoContatto": 6,
-      "id": 1
-    },
-    {
-      "ragioneSociale": "Cillum dolor officii",
-      "partitaIva": 25,
-      "tipoCliente": "Molestiae excepturi ",
-      "email": "wopoti@mailinator.com",
-      "pec": "Dolores perspiciatis",
-      "telefono": 34,
-      "nomeContatto": "Ut a labore atque qu",
-      "cognomeContatto": "Porro Nam qui duis f",
-      "telefonoContatto": 35,
-      "emailContatto": "poze@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "Voluptas ut autem si",
-        "civico": 87,
-        "cap": 72,
-        "localita": "Fugiat nulla soluta",
-        "comune": {
-          "id": 53,
-          "nome": "Velit minim nisi ci",
-          "provincia": {
-            "id": 14,
-            "nome": "Cupidatat aperiam au",
-            "sigla": "Impedit qui aut nob"
-          }
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "Dolorem laboris est ",
-        "civico": 51,
-        "cap": 66,
-        "localita": "Animi dolore in mol",
-        "comune": {
-          "id": 5,
-          "nome": "Laudantium cum aper",
-          "provincia": {
-            "id": 79,
-            "nome": "Tenetur et ipsam omn",
-            "sigla": "Dolore esse aliqua"
-          }
-        }
-      },
-      "dataInserimento": 76,
-      "dataUltimoContatto": 41,
-      "id": 2
-    },
-    {
-      "ragioneSociale": "At aliquid velit err",
-      "partitaIva": 11,
-      "tipoCliente": "Incidunt qui qui re",
-      "email": "hehurocus@mailinator.com",
-      "pec": "Esse numquam veniam",
-      "telefono": 39,
-      "nomeContatto": "Dolorem eos in irure",
-      "cognomeContatto": "Et voluptatibus dolo",
-      "telefonoContatto": 16,
-      "emailContatto": "pupewota@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "Libero exercitation ",
-        "civico": 88,
-        "cap": 45,
-        "localita": "Omnis quos dolorem q",
+        "via": "Exercitation volupta",
+        "civico": 43,
+        "cap": 53,
+        "localita": "Sint laborum Beatae",
         "comune": {
           "id": 18,
-          "nome": "Ipsam ut quis ad ali",
+          "nome": "Aperiam et nihil off",
           "provincia": {
-            "id": 29,
-            "nome": "Illum eos est sed",
-            "sigla": "Blanditiis laboris c"
+            "id": 56,
+            "nome": "Harum iure sint volu",
+            "sigla": "Iusto error non reru"
           }
         }
       },
-      "indirizzoSedeLegale": {
-        "via": "Minus quo voluptas s",
-        "civico": 80,
-        "cap": 36,
-        "localita": "Dolorem perspiciatis",
-        "comune": {
-          "id": 92,
-          "nome": "Dolor eu deleniti la",
-          "provincia": {
-            "id": 42,
-            "nome": "Eius aut sunt ex de",
-            "sigla": "Cumque id accusamus "
-          }
-        }
-      },
-      "dataInserimento": 13,
-      "dataUltimoContatto": 97,
-      "id": 3
-    },
-    {
-      "ragioneSociale": "",
-      "partitaIva": "",
-      "tipoCliente": "",
-      "email": "",
-      "pec": "",
-      "telefono": "",
-      "nomeContatto": "",
-      "cognomeContatto": "",
-      "telefonoContatto": "",
-      "emailContatto": "",
-      "indirizzoSedeOperativa": {
-        "via": "",
-        "civico": "",
-        "cap": "",
-        "localita": "",
-        "comune": {
-          "id": "",
-          "nome": "",
-          "provincia": {
-            "id": "",
-            "nome": "",
-            "sigla": ""
-          }
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "",
-        "civico": "",
-        "cap": "",
-        "localita": "",
-        "comune": {
-          "id": "",
-          "nome": "",
-          "provincia": {
-            "id": "",
-            "nome": "",
-            "sigla": ""
-          }
-        }
-      },
-      "dataInserimento": "",
-      "dataUltimoContatto": "",
-      "id": 4
-    },
-    {
-      "ragioneSociale": "Rerum recusandae Mi",
-      "partitaIva": 30,
-      "tipoCliente": "Est voluptates repu",
-      "email": "nixu@mailinator.com",
-      "pec": "Sequi dignissimos of",
-      "telefono": 71,
-      "nomeContatto": "Ipsam et quia quia c",
-      "cognomeContatto": "Possimus quam persp",
-      "telefonoContatto": 88,
-      "emailContatto": "bonusirife@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "Culpa eum ipsum co",
-        "civico": 76,
-        "cap": 23,
-        "localita": "Aliquam adipisicing ",
-        "comune": {
-          "id": 80,
-          "nome": "Magnam accusamus dol",
-          "provincia": {
-            "id": 10,
-            "nome": "Officia iure eu eu q",
-            "sigla": "Unde incidunt ea an"
-          }
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "Adipisci tenetur aut",
-        "civico": 51,
-        "cap": 61,
-        "localita": "Doloribus ut magnam ",
-        "comune": {
-          "id": 50,
-          "nome": "Est quo illo officii",
-          "provincia": {
-            "id": 47,
-            "nome": "Incidunt odio deser",
-            "sigla": "Iusto consequatur F"
-          }
-        }
-      },
-      "dataInserimento": 96,
-      "dataUltimoContatto": 95,
-      "id": 5
+      "dataInserimento": 38,
+      "dataUltimoContatto": 61,
+      "id": 1
     }
   ],
   "taxes": []
