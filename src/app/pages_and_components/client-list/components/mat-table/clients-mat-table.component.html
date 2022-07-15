@@ -1,63 +1,69 @@
-<!-- <p *ngFor="let client of clients">{{client.ragioneSociale}}</p>
-<p *ngFor="let client of clients">{{client.partitaIva}}</p>
-<p *ngFor="let client of clients">{{client.tipoCliente}}</p> -->
-
-<mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-</mat-form-field>
-
 <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+    <mat-form-field appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
 
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let client"> {{client.id}} </td>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+        <!-- cicla elementi, riporta i titoli delle colonne come le prop. json, e scrive dati -->
+
+        <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+
+            <th mat-header-cell *matHeaderCellDef>
+                <p *ngIf="column === displayedColumns[0]">ID: </p>
+                <p *ngIf="column === displayedColumns[1]">Name: </p>
+                <p *ngIf="column === displayedColumns[2]">Surname: </p>
+                <p *ngIf="column === displayedColumns[3]">P.Iva: </p>
+                <p *ngIf="column === displayedColumns[4]">Email: </p>
+            </th>
+            <th mat-header-cell *matHeaderCellDef="column === displayedColumns[1]"> Name: </th>
+            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="nomeContatto">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-            <td mat-cell *matCellDef="let client"> {{client.nomeContatto}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="cognomeContatto">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Surname </th>
-            <td mat-cell *matCellDef="let client"> {{client.cognomeContatto}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="partitaIva">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> P. Iva </th>
-            <td mat-cell *matCellDef="let client"> {{client.partitaIva}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-            <td mat-cell *matCellDef="let client"> {{client.email}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="removeClient">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-            <td mat-cell>
-                <button mat-button *matCellDef="let client" (click)="removeClient(client.id)">
-                    <mat-icon>delete</mat-icon>
+        <ng-container matColumnDef="expand">
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button aria-label="expand row"
+                    (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                    <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                    <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
                 </button>
             </td>
         </ng-container>
 
-        <ng-container matColumnDef="viewInvoices">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
-            <td mat-cell *matCellDef="let client">
-                <a mat-button (click)="set_acual_id(client.id)" href="#" [routerLink]="['/tax_invoice_list']"
-                    routerLinkActive="router-link-active"> Invoices</a>
+        <!-- Dati da inserire nell'expandable -->
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let client" [attr.colspan]="columnsToDisplayWithExpand.length">
+                <div class="example-element-detail"
+                    [@detailExpand]="client == expandedElement ? 'expanded' : 'collapsed'">
+                    <div class="example-element-description">
+                        <!-- Qui inseriro' i dati completi degli input -->
+                        Name: {{client.nomeContatto}} - Surname: {{client.cognomeContatto}} - P.Iva:
+                        {{client.partitaIva}} - Email: {{client.email}}
+
+                        <button mat-button (click)="removeClient(client.id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+
+                        <a mat-button (click)="set_acual_id(client.id)" href="#" [routerLink]="['/tax_invoice_list']"
+                            routerLinkActive="router-link-active"> Invoices</a>
+                    </div>
+                </div>
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element"
+            (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 
         <tr class="mat-row" *matNoDataRow>
             <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
         </tr>
+
     </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>

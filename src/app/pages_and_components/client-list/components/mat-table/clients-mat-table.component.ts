@@ -7,17 +7,28 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
 import { IClientsData } from '../../interfaces/iclients-data';
 import { ActualClientIdService } from '../../../actual-client-id.service'
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-clients-mat-table',
   templateUrl: './clients-mat-table.component.html',
-  styleUrls: ['./clients-mat-table.component.scss']
+  styleUrls: ['./clients-mat-table.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 
 export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChanges {
-  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email', 'removeClient', 'viewInvoices'];
+  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email'];
   clients: IClientsData[] = [];
   dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
+
+  columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
+  expandedElement!: IClientsData | null;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

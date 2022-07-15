@@ -67,6 +67,10 @@ export class AuthService {
           })
         }) */
   }
+  /* 
+    modClientS(id: number): Observable<Object> {
+      return this.http.delete('http://localhost:4201/clients/' + id);
+    } */
 
   /* aggiunge valori di ritorno del form, al db */
   add_client(obj: IClientsData) {
@@ -77,7 +81,7 @@ export class AuthService {
     return this.http.post(this.urlJsonServer + '/taxes', obj);
   }
 
-  get_taxes_by_id(){
+  get_taxes_by_id() {
     return this.http.get(this.urlJsonServer + '/taxes');
   }
 
