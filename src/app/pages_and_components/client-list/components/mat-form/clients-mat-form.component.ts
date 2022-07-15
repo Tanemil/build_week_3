@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-clients-mat-form',
@@ -60,7 +61,7 @@ export class ClientsMatFormComponent implements OnInit {
     dataUltimoContatto: new FormControl('')
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -76,10 +77,18 @@ export class ClientsMatFormComponent implements OnInit {
         this.error = err.error;
       }
     )
+
+    this.changeLocation()
   }
 
-  refresh(): void {
-    window.location.reload();
+  changeLocation() {
+
+    // save current route first
+    const currentRoute = this.router.url;
+
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentRoute]); // navigate to same route
+    });
   }
 
 }

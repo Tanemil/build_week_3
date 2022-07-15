@@ -5,6 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { elementAt } from 'rxjs';
+import { ActualClientIdService } from 'src/app/pages_and_components/actual-client-id.service';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
 import { ITaxesData } from 'src/app/pages_and_components/client-list/interfaces/itaxes-data';
 
@@ -18,6 +20,8 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
   displayedColumns: string[] = ['id', 'data', 'numero', 'anno', 'importo'];
   invoices: ITaxesData[] = [];
   dataSource: MatTableDataSource<ITaxesData> = new MatTableDataSource(this.invoices);
+  client_id!: number
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -30,6 +34,7 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
     private authService: AuthService,
     private router: Router,
     private http: HttpClient,
+    private actual_client: ActualClientIdService,
   ) {
     // Create 100 users
     /* const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1)); */
@@ -39,6 +44,7 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
     /*  this.dataSource = this.getAllClients() */
   }
   ngOnInit(): void {
+    this.get_actual_client_id()
     this.getAllInvoices();
     this.dataSource = new MatTableDataSource(this.invoices);
   }
@@ -72,6 +78,12 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
     }
   }
 
+  get_actual_client_id() {
+    this.actual_client.getState().subscribe(resp => {
+      this.client_id = resp
+    })
+  }
+
   /* ----- Post & Get nel db.json (dentro clients) ----- */
 
   async getAllInvoices() {
@@ -87,7 +99,13 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
 
             //let jsonObj: any = JSON.parse(resp); // string to generic object first
             let parseRes: ITaxesData[] = <ITaxesData[]><unknown>resp;
-            this.invoices = parseRes;
+            let prop: ITaxesData[] = []
+            parseRes.forEach(element =>{
+              if (element.cliente.id === this.client_id ){
+                prop.push(element)
+              }
+            })
+            this.invoices = prop;
             this.dataSource = new MatTableDataSource(this.invoices)
             console.log(this.invoices, resp, parseRes);
 

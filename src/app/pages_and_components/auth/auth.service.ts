@@ -77,4 +77,8 @@ export class AuthService {
     return this.http.post(this.urlJsonServer + '/taxes', obj);
   }
 
+  get_taxes_by_id(){
+    return this.http.get(this.urlJsonServer + '/taxes');
+  }
+
 }

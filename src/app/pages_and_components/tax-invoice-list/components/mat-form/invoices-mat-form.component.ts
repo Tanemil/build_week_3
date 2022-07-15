@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActualClientIdService } from '../../..//actual-client-id.service'
+import { Router } from '@angular/router';
+import { ITaxesData } from 'src/app/pages_and_components/client-list/interfaces/itaxes-data';
 
 @Component({
   selector: 'app-invoices-mat-form',
@@ -35,12 +37,12 @@ export class InvoicesMatFormComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private actual_client: ActualClientIdService
+    private actual_client: ActualClientIdService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
     this.get_actual_client_id()
-    console.log('oninit')
     this.clientForm.controls.cliente.controls.id.setValue(this.client_id)
   }
 
@@ -59,6 +61,8 @@ export class InvoicesMatFormComponent implements OnInit {
       }
     )
 
+    this.changeLocation()
+
   }
 
   refresh(): void {
@@ -68,10 +72,18 @@ export class InvoicesMatFormComponent implements OnInit {
 
   get_actual_client_id() {
     this.actual_client.getState().subscribe(resp => {
-      console.log(resp);
       this.client_id = resp
     })
+  }
 
+  changeLocation() {
+
+    // save current route first
+    const currentRoute = this.router.url;
+
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate([currentRoute]); // navigate to same route
+    });
   }
 
 }
