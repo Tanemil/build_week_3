@@ -22,6 +22,81 @@
       "id": 3
     }
   ],
-  "clients": [],
-  "taxes": []
+  "clients": [
+    {
+      "ragioneSociale": "Sint iusto dolorem ",
+      "partitaIva": 56,
+      "tipoCliente": "Odit veritatis volup",
+      "email": "qezydyg@mailinator.com",
+      "pec": "Recusandae Sed plac",
+      "telefono": 92,
+      "nomeContatto": "Ex consequatur Qui ",
+      "cognomeContatto": "Provident adipisci ",
+      "telefonoContatto": 90,
+      "emailContatto": "hiqy@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Iure rerum eveniet ",
+        "civico": 28,
+        "cap": 20,
+        "localita": "In quis dolorum ulla",
+        "comune": {
+          "id": 75,
+          "nome": "Consequatur non ut ",
+          "provincia": {
+            "id": 26,
+            "nome": "Sit adipisci facere ",
+            "sigla": "Ex cupiditate distin"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Aliquip perspiciatis",
+        "civico": 63,
+        "cap": 67,
+        "localita": "Accusantium beatae i",
+        "comune": {
+          "id": 81,
+          "nome": "Quis repudiandae fug",
+          "provincia": {
+            "id": 77,
+            "nome": "Aliquam minus dicta ",
+            "sigla": "Dolore sint deserunt"
+          }
+        }
+      },
+      "dataInserimento": 60,
+      "dataUltimoContatto": 76,
+      "id": 1
+    }
+  ],
+  "taxes": [
+    {
+      "data": "1997-07-12",
+      "numero": 30,
+      "anno": 11,
+      "importo": 34,
+      "stato": {
+        "id": 94,
+        "nome": "Sunt aut qui ipsum "
+      },
+      "cliente": {
+        "id": 1
+      },
+      "id": 1
+    },
+    {
+      "data": "2012-06-16",
+      "numero": 50,
+      "anno": 39,
+      "importo": 28,
+      "stato": {
+        "id": 62,
+        "nome": "Modi cupiditate dolo"
+      },
+      "cliente": {
+        "id": 0
+      },
+      "id": 2
+    }
+  ]
 }
