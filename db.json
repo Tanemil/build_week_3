@@ -22,6 +22,97 @@
       "id": 3
     }
   ],
-  "clients": [],
+  "clients": [
+    {
+      "ragioneSociale": "Sit minim ut ullamco",
+      "partitaIva": 21,
+      "tipoCliente": "Itaque reiciendis si",
+      "email": "xezo@mailinator.com",
+      "pec": "Fuga Nulla elit qu",
+      "telefono": 54,
+      "nomeContatto": "Cupiditate reprehend",
+      "cognomeContatto": "Dicta voluptatem et ",
+      "telefonoContatto": 100,
+      "emailContatto": "kiwocuragu@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Qui proident delect",
+        "civico": 58,
+        "cap": 27,
+        "localita": "Sed esse ut ipsum qu",
+        "comune": {
+          "id": 29,
+          "nome": "Praesentium commodi ",
+          "provincia": {
+            "id": 11,
+            "nome": "Optio adipisci tota",
+            "sigla": "Quidem voluptas ut n"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "In ad fugit eos qui",
+        "civico": 43,
+        "cap": 57,
+        "localita": "Iusto architecto exe",
+        "comune": {
+          "id": 86,
+          "nome": "Aute reprehenderit e",
+          "provincia": {
+            "id": 60,
+            "nome": "Molestiae repudianda",
+            "sigla": "Velit modi quis dol"
+          }
+        }
+      },
+      "dataInserimento": 76,
+      "dataUltimoContatto": 90,
+      "id": 2
+    },
+    {
+      "ragioneSociale": "Aut voluptas aliqua",
+      "partitaIva": 32,
+      "tipoCliente": "Qui voluptas est nu",
+      "email": "tawalo@mailinator.com",
+      "pec": "Consectetur distinct",
+      "telefono": 88,
+      "nomeContatto": "Beatae nesciunt seq",
+      "cognomeContatto": "Delectus cupiditate",
+      "telefonoContatto": 4,
+      "emailContatto": "lirynosyv@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Dolores nisi pariatu",
+        "civico": 3,
+        "cap": 11,
+        "localita": "Optio nesciunt omn",
+        "comune": {
+          "id": 60,
+          "nome": "Hic sit debitis omn",
+          "provincia": {
+            "id": 28,
+            "nome": "Nam ad lorem autem u",
+            "sigla": "Iusto architecto omn"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Minim magna molestia",
+        "civico": 8,
+        "cap": 4,
+        "localita": "Autem et officia ips",
+        "comune": {
+          "id": 76,
+          "nome": "Ut ea iste inventore",
+          "provincia": {
+            "id": 90,
+            "nome": "Consequatur iure qu",
+            "sigla": "Nostrud ea qui repel"
+          }
+        }
+      },
+      "dataInserimento": 70,
+      "dataUltimoContatto": 63,
+      "id": 3
+    }
+  ],
   "taxes": []
 }
