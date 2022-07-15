@@ -46,8 +46,8 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   }
 
   ngOnChanges(): void {
-/*     this.dataSource = new MatTableDataSource(this.clients);
-    this.dataSource.paginator = this.paginator; */
+    this.dataSource = new MatTableDataSource(this.clients);
+    this.dataSource.paginator = this.paginator;
   }
 
   ngAfterViewInit() {
