@@ -22,52 +22,6 @@
       "id": 3
     }
   ],
-  "clients": [
-    {
-      "ragioneSociale": "Ea tempor dolore qui",
-      "partitaIva": 54,
-      "tipoCliente": "Voluptatem Rerum co",
-      "email": "waguval@mailinator.com",
-      "pec": "Voluptatem Ab conse",
-      "telefono": 14,
-      "nomeContatto": "Eum sit dolor iure ",
-      "cognomeContatto": "Molestiae sunt qui q",
-      "telefonoContatto": 34,
-      "emailContatto": "joheweme@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "Sint doloribus quam ",
-        "civico": 47,
-        "cap": 82,
-        "localita": "Dolore qui dolorem m",
-        "comune": {
-          "id": 10,
-          "nome": "Sit est provident a",
-          "provincia": {
-            "id": 66,
-            "nome": "Ipsam fuga Recusand",
-            "sigla": "Voluptatem Voluptat"
-          }
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "Dolores eius laborio",
-        "civico": 31,
-        "cap": 81,
-        "localita": "Repudiandae consecte",
-        "comune": {
-          "id": 30,
-          "nome": "Nisi eveniet mollit",
-          "provincia": {
-            "id": 89,
-            "nome": "Sint veritatis iure ",
-            "sigla": "Nesciunt dolores vo"
-          }
-        }
-      },
-      "dataInserimento": 3,
-      "dataUltimoContatto": 58,
-      "id": 1
-    }
-  ],
+  "clients": [],
   "taxes": []
 }
