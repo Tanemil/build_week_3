@@ -63,13 +63,13 @@ export class AuthService {
           parseRes.forEach(element => {
           console.log(element)
           if (element.cliente.id === client_id){
-            this.removeTaxes(client_id,element).subscribe()
+            this.removeTaxes(element).subscribe()
           }
         });
     })
   }
 
-  removeTaxes(client_id:number,element:ITaxesData){
+  removeTaxes(element:ITaxesData){
     let id_elemento_da_cancellare = element.id
     return this.http.delete('http://localhost:4201/taxes/'+id_elemento_da_cancellare)
   }
@@ -84,7 +84,7 @@ export class AuthService {
           })
         }) */
   }
-  /* 
+  /*
     modClientS(id: number): Observable<Object> {
       return this.http.delete('http://localhost:4201/clients/' + id);
     } */
