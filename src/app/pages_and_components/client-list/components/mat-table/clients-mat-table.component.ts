@@ -95,6 +95,8 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   }
 
   removeClient(id: number): void {
+    console.log(id)
+    this.authService.removeAllTaxes(this.clients[id-1].id);
     this.authService.removeClientS(id).subscribe();
     this.getAfterDelete();
   }

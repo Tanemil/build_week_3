@@ -57,6 +57,23 @@ export class AuthService {
 
   /* ---------------------------- */
 
+  removeAllTaxes(client_id:number): any{
+    return this.http.get('http://localhost:4201/taxes').subscribe(resp => {
+        let parseRes: ITaxesData[] = <ITaxesData[]><unknown>resp;
+          parseRes.forEach(element => {
+          console.log(element)
+          if (element.cliente.id === client_id){
+            this.removeTaxes(client_id,element).subscribe()
+          }
+        });
+    })
+  }
+
+  removeTaxes(client_id:number,element:ITaxesData){
+    let id_elemento_da_cancellare = element.id
+    return this.http.delete('http://localhost:4201/taxes/'+id_elemento_da_cancellare)
+  }
+
   removeClientS(id: number): Observable<Object> {
 
     return this.http.delete('http://localhost:4201/clients/' + id);

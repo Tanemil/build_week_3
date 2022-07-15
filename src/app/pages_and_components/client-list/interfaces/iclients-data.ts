@@ -41,4 +41,5 @@ export interface IClientsData {
     },
     "dataInserimento"?: number,
     "dataUltimoContatto"?: number
+    "id":number
 }

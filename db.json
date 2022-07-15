@@ -22,91 +22,67 @@
       "id": 3
     }
   ],
-  "clients": [],
+  "clients": [
+    {
+      "ragioneSociale": "Non quia praesentium",
+      "partitaIva": 15,
+      "tipoCliente": "Dolor voluptatibus a",
+      "email": "zulamatos@mailinator.com",
+      "pec": "Ullam dolores laboru",
+      "telefono": 90,
+      "nomeContatto": "Sint praesentium ips",
+      "cognomeContatto": "Aut obcaecati nemo r",
+      "telefonoContatto": 88,
+      "emailContatto": "kocaxyfu@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Ut impedit id cupid",
+        "civico": 44,
+        "cap": 7,
+        "localita": "Labore similique nat",
+        "comune": {
+          "id": 21,
+          "nome": "Placeat qui natus v",
+          "provincia": {
+            "id": 9,
+            "nome": "Deserunt esse volupt",
+            "sigla": "Ipsam aut magnam omn"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Fuga Est nisi nostr",
+        "civico": 65,
+        "cap": 75,
+        "localita": "Tempor velit accusa",
+        "comune": {
+          "id": 39,
+          "nome": "Eos pariatur Eu dol",
+          "provincia": {
+            "id": 1,
+            "nome": "Sit iusto maxime ve",
+            "sigla": "Sed qui excepteur fu"
+          }
+        }
+      },
+      "dataInserimento": 25,
+      "dataUltimoContatto": 96,
+      "id": 2
+    }
+  ],
   "taxes": [
     {
-      "data": "1998-06-26",
-      "numero": 60,
-      "anno": 73,
-      "importo": 7,
+      "data": "1978-02-03",
+      "numero": 16,
+      "anno": 94,
+      "importo": 34,
       "stato": {
-        "id": 17,
-        "nome": "Recusandae Laudanti"
-      },
-      "cliente": {
-        "id": 1
-      },
-      "id": 1
-    },
-    {
-      "data": "1981-09-05",
-      "numero": 79,
-      "anno": 8,
-      "importo": 7,
-      "stato": {
-        "id": 79,
-        "nome": "Odit perspiciatis d"
-      },
-      "cliente": {
-        "id": 1
-      },
-      "id": 2
-    },
-    {
-      "data": "1998-05-11",
-      "numero": 57,
-      "anno": 63,
-      "importo": 2,
-      "stato": {
-        "id": 58,
-        "nome": "Vitae adipisicing eo"
+        "id": 73,
+        "nome": "Expedita sunt nesciu"
       },
       "cliente": {
         "id": 2
       },
       "id": 3
-    },
-    {
-      "data": "2004-11-14",
-      "numero": 47,
-      "anno": 74,
-      "importo": 45,
-      "stato": {
-        "id": 72,
-        "nome": "Esse ipsa suscipit"
-      },
-      "cliente": {
-        "id": 2
-      },
-      "id": 4
-    },
-    {
-      "data": "1980-06-25",
-      "numero": 15,
-      "anno": 32,
-      "importo": 62,
-      "stato": {
-        "id": 91,
-        "nome": "Consequuntur earum v"
-      },
-      "cliente": {
-        "id": 3
-      },
-      "id": 5
-    },
-    {
-      "data": "2011-09-02",
-      "numero": 19,
-      "anno": 3,
-      "importo": 77,
-      "stato": {
-        "id": 40,
-        "nome": "Sed eius consectetur"
-      },
-      "cliente": {
-        "id": 3
-      },
-      "id": 6
     }
   ]
 }
