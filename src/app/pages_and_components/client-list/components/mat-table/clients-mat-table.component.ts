@@ -46,8 +46,8 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   }
 
   ngOnChanges(): void {
-/*     this.dataSource = new MatTableDataSource(this.clients);
-    this.dataSource.paginator = this.paginator; */
+    /*     this.dataSource = new MatTableDataSource(this.clients);
+        this.dataSource.paginator = this.paginator; */
   }
 
   ngAfterViewInit() {
@@ -109,13 +109,17 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
 
   removeClient(id: number): void {
     this.clients.forEach(element => {
-      if (element.id === id){
+      if (element.id === id) {
         this.authService.removeAllTaxes(element.id);
       }
     });
     this.authService.removeClientS(id).subscribe();
     this.getAfterDelete();
   }
+
+  /*   modClient(): void {
+      this.authService.modClientS();
+    } */
 
   set_acual_id(id: number) {
     this.actual_id.changeState(id);
