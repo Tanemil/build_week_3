@@ -22,6 +22,142 @@
       "id": 3
     }
   ],
-  "clients": [],
+  "clients": [
+    {
+      "ragioneSociale": "SRL",
+      "partitaIva": 233467823,
+      "tipoCliente": "Business",
+      "email": "cloud.gianluca@gmail.com",
+      "pec": "",
+      "telefono": 35152526,
+      "nomeContatto": "Gianluca ",
+      "cognomeContatto": "Gallone",
+      "telefonoContatto": "",
+      "emailContatto": "",
+      "indirizzoSedeOperativa": {
+        "via": "",
+        "civico": "",
+        "cap": "",
+        "localita": "",
+        "comune": {
+          "id": "",
+          "nome": "",
+          "provincia": {
+            "id": "",
+            "nome": "",
+            "sigla": ""
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "",
+        "civico": "",
+        "cap": "",
+        "localita": "",
+        "comune": {
+          "id": "",
+          "nome": "",
+          "provincia": {
+            "id": "",
+            "nome": "",
+            "sigla": ""
+          }
+        }
+      },
+      "dataInserimento": "",
+      "dataUltimoContatto": "",
+      "id": 1
+    },
+    {
+      "ragioneSociale": "",
+      "partitaIva": "",
+      "tipoCliente": "",
+      "email": "",
+      "pec": "",
+      "telefono": "",
+      "nomeContatto": "",
+      "cognomeContatto": "",
+      "telefonoContatto": "",
+      "emailContatto": "",
+      "indirizzoSedeOperativa": {
+        "via": "Claudia",
+        "civico": "",
+        "cap": "",
+        "localita": "",
+        "comune": {
+          "id": "",
+          "nome": "",
+          "provincia": {
+            "id": "",
+            "nome": "",
+            "sigla": ""
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "",
+        "civico": "",
+        "cap": "",
+        "localita": "",
+        "comune": {
+          "id": "",
+          "nome": "",
+          "provincia": {
+            "id": "",
+            "nome": "",
+            "sigla": ""
+          }
+        }
+      },
+      "dataInserimento": "",
+      "dataUltimoContatto": "",
+      "id": 2
+    },
+    {
+      "ragioneSociale": "Commodo velit adipis",
+      "partitaIva": 90,
+      "tipoCliente": "Duis iure delectus ",
+      "email": "juzas@mailinator.com",
+      "pec": "Sunt vel vel obcaec",
+      "telefono": 100,
+      "nomeContatto": "Natus id sed mollit",
+      "cognomeContatto": "Explicabo Harum ven",
+      "telefonoContatto": 65,
+      "emailContatto": "bopu@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Expedita repellendus",
+        "civico": 72,
+        "cap": 43,
+        "localita": "Odit non veniam dol",
+        "comune": {
+          "id": 9,
+          "nome": "Nemo enim expedita c",
+          "provincia": {
+            "id": 47,
+            "nome": "Hic corrupti exerci",
+            "sigla": "Laborum nisi cupidat"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Cillum dolorem est ",
+        "civico": 19,
+        "cap": 100,
+        "localita": "Sed accusantium est ",
+        "comune": {
+          "id": 54,
+          "nome": "Et unde officia mini",
+          "provincia": {
+            "id": 11,
+            "nome": "Aspernatur et porro ",
+            "sigla": "Eligendi facere dolo"
+          }
+        }
+      },
+      "dataInserimento": 62,
+      "dataUltimoContatto": 36,
+      "id": 3
+    }
+  ],
   "taxes": []
 }

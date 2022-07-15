@@ -1,8 +1,9 @@
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
 <div class="mat-elevation-z8">
-    <mat-form-field appearance="standard">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-    </mat-form-field>
 
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
 
@@ -38,8 +39,29 @@
                     [@detailExpand]="client == expandedElement ? 'expanded' : 'collapsed'">
                     <div class="example-element-description">
                         <!-- Qui inseriro' i dati completi degli input -->
-                        Name: {{client.nomeContatto}} - Surname: {{client.cognomeContatto}} - P.Iva:
-                        {{client.partitaIva}} - Email: {{client.email}}
+                        <b>Anagrafica:</b>
+                        Nome: {{client.nomeContatto}}
+                        Cognome: {{client.cognomeContatto}}
+                        Tipo Cliente: {{client.tipoCliente}}
+                        Ragione Sociale: {{client.ragioneSociale}}
+                        P.Iva: {{client.partitaIva}}
+                        <br>
+                        <b>Recapiti:</b>
+                        Email: {{client.emailContatto}}
+                        Pec: {{client.pec}}
+                        Telefono: {{client.telefonoContatto}}
+                        <br>
+                        <b>Indirizzo Sede Operativa:</b>
+                        Via: {{client.indirizzoSedeOperativa.via}} {{client.indirizzoSedeOperativa.civico}}
+                        Cap: {{client.indirizzoSedeOperativa.cap}}
+                        Comune: {{client.indirizzoSedeOperativa.comune.nome}}
+                        Provincia: {{client.indirizzoSedeOperativa.comune.nome.provincia}}
+                        <br>
+                        <b>Indirizzo Sede Legale:</b>
+                        Via: {{client.indirizzoSedeLegale.via}} {{client.indirizzoSedeLegale.civico}}
+                        Cap: {{client.indirizzoSedeLegale.cap}}
+                        Comune: {{client.indirizzoSedeLegale.comune.nome}}
+                        Provincia: {{client.indirizzoSedeLegale.comune.nome.provincia}}
 
                         <button mat-button (click)="removeClient(client.id)">
                             <mat-icon>delete</mat-icon>
