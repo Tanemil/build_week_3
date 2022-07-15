@@ -1,70 +1,93 @@
 <mat-form-field appearance="standard">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
 </mat-form-field>
 
 <div class="mat-elevation-z8">
 
-    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+    <div class="mat-elevation-z8">
 
-        <!-- cicla elementi, riporta i titoli delle colonne come le prop. json, e scrive dati -->
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
-        <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+            <!-- cicla elementi, riporta i titoli delle colonne come le prop. json, e scrive dati -->
 
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                <p *ngIf="column === displayedColumns[0]">ID: </p>
-                <p *ngIf="column === displayedColumns[1]">Name: </p>
-                <p *ngIf="column === displayedColumns[2]">Surname: </p>
-                <p *ngIf="column === displayedColumns[3]">P.Iva: </p>
-                <p *ngIf="column === displayedColumns[4]">Email: </p>
-            </th>
-            <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-        </ng-container>
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
 
-        <ng-container matColumnDef="expand">
-            <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
-            <td mat-cell *matCellDef="let element">
-                <button mat-icon-button aria-label="expand row"
-                    (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
-                    <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
-                    <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
-                </button>
-            </td>
-        </ng-container>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <p *ngIf="column === displayedColumns[0]">ID: </p>
+                    <p *ngIf="column === displayedColumns[1]">Name: </p>
+                    <p *ngIf="column === displayedColumns[2]">Surname: </p>
+                    <p *ngIf="column === displayedColumns[3]">P.Iva: </p>
+                    <p *ngIf="column === displayedColumns[4]">Email: </p>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+            </ng-container>
 
-        <!-- Dati da inserire nell'expandable -->
-        <ng-container matColumnDef="expandedDetail">
-            <td mat-cell *matCellDef="let client" [attr.colspan]="columnsToDisplayWithExpand.length">
-                <div class="example-element-detail"
-                    [@detailExpand]="client == expandedElement ? 'expanded' : 'collapsed'">
-                    <div class="example-element-description">
-                        <!-- Qui inseriro' i dati completi degli input -->
-                        Name: {{client.nomeContatto}} - Surname: {{client.cognomeContatto}} - P.Iva:
-                        {{client.partitaIva}} - Email: {{client.email}}
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button aria-label="expand row"
+                        (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
 
-                        <button mat-button (click)="removeClient(client.id)">
-                            <mat-icon>delete</mat-icon>
-                        </button>
+            <!-- Dati da inserire nell'expandable -->
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let client" [attr.colspan]="columnsToDisplayWithExpand.length">
+                    <div class="example-element-detail"
+                        [@detailExpand]="client == expandedElement ? 'expanded' : 'collapsed'">
+                        <div class="example-element-description">
+                            <!-- Qui inseriro' i dati completi degli input -->
+                            <b>Anagrafica:</b>
+                            Nome: {{client.nomeContatto}}
+                            Cognome: {{client.cognomeContatto}}
+                            Tipo Cliente: {{client.tipoCliente}}
+                            Ragione Sociale: {{client.ragioneSociale}}
+                            P.Iva: {{client.partitaIva}}
+                            <br>
+                            <b>Recapiti:</b>
+                            Email: {{client.emailContatto}}
+                            Pec: {{client.pec}}
+                            Telefono: {{client.telefonoContatto}}
+                            <br>
+                            <b>Indirizzo Sede Operativa:</b>
+                            Via: {{client.indirizzoSedeOperativa.via}} {{client.indirizzoSedeOperativa.civico}}
+                            Cap: {{client.indirizzoSedeOperativa.cap}}
+                            Comune: {{client.indirizzoSedeOperativa.comune.nome}}
+                            Provincia: {{client.indirizzoSedeOperativa.comune.nome.provincia}}
+                            <br>
+                            <b>Indirizzo Sede Legale:</b>
+                            Via: {{client.indirizzoSedeLegale.via}} {{client.indirizzoSedeLegale.civico}}
+                            Cap: {{client.indirizzoSedeLegale.cap}}
+                            Comune: {{client.indirizzoSedeLegale.comune.nome}}
+                            Provincia: {{client.indirizzoSedeLegale.comune.nome.provincia}}
 
-                        <a mat-button (click)="set_acual_id(client.id)" href="#" [routerLink]="['/tax_invoice_list']"
-                            routerLinkActive="router-link-active"> Invoices</a>
+                            <button mat-button (click)="removeClient(client.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+
+                            <a mat-button (click)="set_acual_id(client.id)" href="#"
+                                [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active"> Invoices</a>
+                        </div>
                     </div>
-                </div>
-            </td>
-        </ng-container>
+                </td>
+            </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
-        <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
-            [class.example-expanded-row]="expandedElement === element"
-            (click)="expandedElement = expandedElement === element ? null : element">
-        </tr>
-        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
 
-    </table>
+        </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-</div>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
