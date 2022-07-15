@@ -79,9 +79,9 @@ export class AuthService {
     return this.http.delete('http://localhost:4201/clients/' + id);
   }
 
-  modClientS(id: number): Observable<Object> {
-    return this.http.delete('http://localhost:4201/clients/' + id);
-  }
+  /*   modClientS(id: number): Observable<Object> {
+      return this.http.delete('http://localhost:4201/clients/' + id);
+    } */
 
   /* ------------------------------------------- */
 
