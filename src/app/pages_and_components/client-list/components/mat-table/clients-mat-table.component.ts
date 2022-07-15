@@ -46,7 +46,8 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   }
 
   ngOnChanges(): void {
-    //this.dataSource = new MatTableDataSource(this.clients);
+/*     this.dataSource = new MatTableDataSource(this.clients);
+    this.dataSource.paginator = this.paginator; */
   }
 
   ngAfterViewInit() {
@@ -75,6 +76,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
             let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
             this.clients = parseRes;
             this.dataSource = new MatTableDataSource(this.clients)
+            this.dataSource.paginator = this.paginator;
             console.log(this.clients, resp, parseRes);
           },
           err => {

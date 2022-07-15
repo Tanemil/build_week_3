@@ -1,16 +1,17 @@
-<div class="mat-elevation-z8">
-    <mat-form-field appearance="standard">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-    </mat-form-field>
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
 
-    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+<div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
 
         <!-- cicla elementi, riporta i titoli delle colonne come le prop. json, e scrive dati -->
 
         <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
 
-            <th mat-header-cell *matHeaderCellDef>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
                 <p *ngIf="column === displayedColumns[0]">ID: </p>
                 <p *ngIf="column === displayedColumns[1]">Name: </p>
                 <p *ngIf="column === displayedColumns[2]">Surname: </p>
