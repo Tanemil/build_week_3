@@ -28,7 +28,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email'];
+  displayedColumns: string[] = ['id', 'nomeCliente', 'cognomeCliente', 'partitaIva', 'email'];
   clients: IClientsData[] = [];
   dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];

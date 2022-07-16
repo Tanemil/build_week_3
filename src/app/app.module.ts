@@ -8,8 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from './pages_and_components/header/header.module';
 import { FooterModule } from './pages_and_components/footer/footer.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent

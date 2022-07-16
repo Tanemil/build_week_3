@@ -61,3 +61,12 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-description-attribution {
     opacity: 0.5;
 }
+
+#title {
+    font-weight: bold;
+}
+
+#description {
+    font-weight: bold;
+    font-style: italic;
+}

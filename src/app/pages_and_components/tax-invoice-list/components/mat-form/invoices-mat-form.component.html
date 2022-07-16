@@ -1,9 +1,7 @@
 <form #f="ngForm" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
   <mat-expansion-panel class="mt-5 mb-5" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        Form aggiungi fattura
-      </mat-panel-title>
+      <mat-panel-title id="form-title">Form aggiungi fattura</mat-panel-title>
     </mat-expansion-panel-header>
     <div class="container_input_field">
 
@@ -51,7 +49,7 @@
         <input matInput type="number" formControlName="importo">
       </mat-form-field>
 
-      <button mat-button type="submit">Submit</button>
+      <button mat-button type="submit">Aggiungi</button>
 
     </div>
 

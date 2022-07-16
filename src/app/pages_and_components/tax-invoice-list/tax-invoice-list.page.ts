@@ -1,4 +1,5 @@
-import { Component, DoCheck, HostListener, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-tax-invoice-list',
@@ -7,7 +8,9 @@ import { Component, DoCheck, HostListener, OnChanges, OnDestroy, OnInit } from '
 })
 export class TaxInvoiceListPage implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(this.authService.getTaxClientId());
+  }
 }

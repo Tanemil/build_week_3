@@ -6,7 +6,7 @@ import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IClientsData } from '../client-list/interfaces/iclients-data';
-import { ITaxesData } from '../client-list/interfaces/itaxes-data';
+import { ITaxesData } from '../tax-invoice-list/interfaces/itaxes-data';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,6 @@ export class AuthService {
   private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
   error = undefined;
-  /*   clients: IClientsData[] = []; */
 
   constructor(private http: HttpClient, private router: Router) {
     this.restoreUserLogin();
@@ -101,6 +100,11 @@ export class AuthService {
   }
 
   get_taxes_by_id() {
+    return this.http.get(this.urlJsonServer + '/taxes');
+  }
+
+  /* Get del taxes.cliente.id per recuperarlo in caso di refresh */
+  getTaxClientId() {
     return this.http.get(this.urlJsonServer + '/taxes');
   }
 

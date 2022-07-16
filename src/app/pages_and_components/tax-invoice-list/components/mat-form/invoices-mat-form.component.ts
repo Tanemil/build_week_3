@@ -27,8 +27,8 @@ export class InvoicesMatFormComponent implements OnInit {
     natura: new FormControl(''),
     quantita: new FormControl(''),
     cliente: new FormGroup({
-      id: new FormControl(),
-      nome: new FormControl()
+      nome: new FormControl(),
+      id: new FormControl()
     })
   });
 
@@ -41,6 +41,7 @@ export class InvoicesMatFormComponent implements OnInit {
   ngOnInit(): void {
     this.get_actual_client_id()
     this.clientForm.controls.cliente.controls.id.setValue(this.client_id)
+    console.log(this.client_id);
   }
 
   onSubmit() {
