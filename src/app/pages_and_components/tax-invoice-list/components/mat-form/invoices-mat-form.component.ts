@@ -4,7 +4,6 @@ import { AuthService } from '../../../auth/auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActualClientIdService } from '../../..//actual-client-id.service'
 import { Router } from '@angular/router';
-import { ITaxesData } from 'src/app/pages_and_components/client-list/interfaces/itaxes-data';
 
 @Component({
   selector: 'app-invoices-mat-form',
@@ -13,32 +12,30 @@ import { ITaxesData } from 'src/app/pages_and_components/client-list/interfaces/
 })
 export class InvoicesMatFormComponent implements OnInit {
 
-  client_id!: number
-
   @ViewChild('f') form!: NgForm;
+  client_id!: number
   hide = true;
   error = undefined;
   panelOpenState = false;
 
+  /* Definisco raggruppamento dati che verranno scritti nel db (per leggere dati json castare resp del get) */
   clientForm = new FormGroup({
     data: new FormControl(''),
     numero: new FormControl(''),
-    anno: new FormControl(''),
+    scadenza: new FormControl(''),
     importo: new FormControl(''),
-    stato: new FormGroup({
-      id: new FormControl(''),
-      nome: new FormControl(''),
-    }),
+    natura: new FormControl(''),
+    quantita: new FormControl(''),
     cliente: new FormGroup({
       id: new FormControl(),
-
+      nome: new FormControl()
     })
   });
 
   constructor(
     private authService: AuthService,
     private actual_client: ActualClientIdService,
-    private router:Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -61,29 +58,14 @@ export class InvoicesMatFormComponent implements OnInit {
       }
     )
 
-    this.changeLocation()
+    this.authService.reloadRoute();
 
-  }
-
-  refresh(): void {
-    this.actual_client.changeState(this.client_id)
-    window.location.reload();
   }
 
   get_actual_client_id() {
     this.actual_client.getState().subscribe(resp => {
       this.client_id = resp
     })
-  }
-
-  changeLocation() {
-
-    // save current route first
-    const currentRoute = this.router.url;
-
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate([currentRoute]); // navigate to same route
-    });
   }
 
 }

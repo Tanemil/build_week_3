@@ -16,6 +16,7 @@ export class ClientsMatFormComponent implements OnInit {
   error = undefined;
   panelOpenState = false;
 
+  /* Raggruppamento dei dati nel db per essere letti dopo il cast */
   clientForm = new FormGroup({
     ragioneSociale: new FormControl(''),
     partitaIva: new FormControl(''),
@@ -78,17 +79,7 @@ export class ClientsMatFormComponent implements OnInit {
       }
     )
 
-    this.changeLocation()
-  }
-
-  changeLocation() {
-
-    // save current route first
-    const currentRoute = this.router.url;
-
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate([currentRoute]); // navigate to same route
-    });
+    this.authService.reloadRoute();
   }
 
 }

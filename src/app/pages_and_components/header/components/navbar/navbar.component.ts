@@ -16,8 +16,8 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   ngOnInit(): void { }
 
+  /* se nel localStorage e' presente un access token nascondi btns */
   ngDoCheck(): void {
-    // **SOSTITUIRE CON OUTPUT ED EVENT EMITTER (login con parametro del form)
     if (localStorage.length >= 1) {
       this.showLogout = true;
       this.showLogin = false;
@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     }
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout();
     this.showLogout = false;
     this.showLogin = true;

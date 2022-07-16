@@ -1,13 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
 import { AuthService } from 'src/app/pages_and_components/auth/auth.service';
 import { IClientsData } from '../../interfaces/iclients-data';
 import { ActualClientIdService } from '../../../actual-client-id.service'
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-clients-mat-table',
@@ -23,17 +23,16 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 
 export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChanges {
-  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email'];
-  clients: IClientsData[] = [];
-  dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
 
-  columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
-  expandedElement!: IClientsData | null;
-
+  @ViewChild('f') form!: NgForm;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  @ViewChild('f') form!: NgForm;
+  displayedColumns: string[] = ['id', 'nomeContatto', 'cognomeContatto', 'partitaIva', 'email'];
+  clients: IClientsData[] = [];
+  dataSource: MatTableDataSource<IClientsData> = new MatTableDataSource(this.clients);
+  columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
+  expandedElement!: IClientsData | null;
   error = undefined;
 
   constructor(
@@ -58,14 +57,10 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    if (this.dataSource.paginator) { this.dataSource.paginator.firstPage(); }
   }
 
-  /* ----- Post & Get nel db.json (dentro clients) ----- */
-
+  /* get con chiamata async che crea un table e success lo popola con i dati */
   async getAllClients(): Promise<void> {
     await this.authService.authSubject.subscribe(client => {
       this.http.get<IClientsData[]>('http://localhost:4201/clients', {
@@ -73,11 +68,12 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
       })
         .subscribe(
           resp => {
-            let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
-            this.clients = parseRes;
+            /* cast dell'oggetto json intero (resp) per trasf in prop come quelle dell'interfaccia */
+            let castResp: IClientsData[] = <IClientsData[]><unknown>resp;
+            this.clients = castResp; // posso ciclare clients e leggere prop castate, con elem.proprieta
             this.dataSource = new MatTableDataSource(this.clients)
             this.dataSource.paginator = this.paginator;
-            console.log(this.clients, resp, parseRes);
+            console.log(this.clients, resp, castResp);
           },
           err => {
             console.log(err);
@@ -94,11 +90,12 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
       })
         .subscribe(
           resp => {
-            let parseRes: IClientsData[] = <IClientsData[]><unknown>resp;
-            this.clients = parseRes;
+            /* cast dell'oggetto json intero (resp) per trasf in prop come quelle dell'interfaccia */
+            let castResp: IClientsData[] = <IClientsData[]><unknown>resp;
+            this.clients = castResp;
             this.dataSource = new MatTableDataSource(this.clients)
             this.dataSource.paginator = this.paginator;
-            console.log(this.clients, resp, parseRes);
+            console.log(this.clients, resp, castResp);
           },
           err => {
             console.log(err);
@@ -122,7 +119,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
       this.authService.modClientS();
     } */
 
-  set_acual_id(id: number) {
+  set_actual_id(id: number) {
     this.actual_id.changeState(id);
   }
 

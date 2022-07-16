@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, HostListener, OnChanges, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tax-invoice-list',
@@ -7,10 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaxInvoiceListPage implements OnInit {
 
-  constructor(
-  ) { }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

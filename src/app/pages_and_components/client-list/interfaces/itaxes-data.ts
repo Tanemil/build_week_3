@@ -1,14 +1,13 @@
 export interface ITaxesData {
     "data": number,
     "numero": number,
-    "anno": number,
+    "scadenza": number,
     "importo": number,
-    "stato": {
-        "id": number,
-        "nome": string
-    },
+    "natura": string,
+    "quantita": number,
     "cliente": {
+        "nome": string,
         "id": number
     },
-    "id":number
+    "id": number
 }
