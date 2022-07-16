@@ -69,14 +69,20 @@ export class AuthService {
     })
   }
 
+  /* rimuove tutte le fatture relative a quel cliente */
   removeTaxes(element: ITaxesData) {
     let id_elemento_da_cancellare = element.id
-    return this.http.delete('http://localhost:4201/taxes/' + id_elemento_da_cancellare)
+    return this.http.delete('http://localhost:4201/taxes/' + id_elemento_da_cancellare) // taxes.cliente.id
   }
 
-  removeClientS(id: number): Observable<Object> {
+  /* rimuove la singola fattura al click */
+  removeInvoiceS(id: number): Observable<Object> {
+    return this.http.delete('http://localhost:4201/taxes/' + id) // taxes.id
+  }
 
-    return this.http.delete('http://localhost:4201/clients/' + id);
+  /* rimuove il singolo cliente al click */
+  removeClientS(id: number): Observable<Object> {
+    return this.http.delete('http://localhost:4201/clients/' + id); //clients.id
   }
 
   /*   modClientS(id: number): Observable<Object> {

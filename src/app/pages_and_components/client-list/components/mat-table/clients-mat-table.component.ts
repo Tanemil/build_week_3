@@ -68,7 +68,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
       })
         .subscribe(
           resp => {
-            /* cast dell'oggetto json intero (resp) per trasf in prop come quelle dell'interfaccia */
+            /* cast dell'oggetto json intero (resp) per tipizzarle in prop come quelle dell'interfaccia */
             let castResp: IClientsData[] = <IClientsData[]><unknown>resp;
             this.clients = castResp; // posso ciclare clients e leggere prop castate, con elem.proprieta
             this.dataSource = new MatTableDataSource(this.clients)
@@ -106,6 +106,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   }
 
   removeClient(id: number): void {
+    /* quando rimuovi il cliente, elimina tutte le sue fatture */
     this.clients.forEach(element => {
       if (element.id === id) {
         this.authService.removeAllTaxes(element.id);

@@ -8,8 +8,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-invoices-mat-table',
@@ -81,7 +80,7 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
       })
         .subscribe(
           resp => {
-            /* cast dell'oggetto json intero (resp) per trasf in prop come quelle dell'interfaccia */
+            /* cast dell'oggetto json intero (resp) per tipizzarle in prop come quelle dell'interfaccia */
             let castResp: ITaxesData[] = <ITaxesData[]><unknown>resp;
             let prop: ITaxesData[] = [];
             castResp.forEach(element => {
@@ -99,6 +98,11 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
           }
         )
     })
+  }
+
+  removeInvoice(id: number): void {
+    this.authService.removeInvoiceS(id).subscribe();
+    this.getAllInvoices();
   }
 
 }

@@ -49,14 +49,12 @@
                             Scadenza pagamento: {{invoice.scadenza}}
                             Importo: €{{invoice.importo}}
 
-
-
                             <!-- Button Rimuovi Fattura, Modifica Dati, Torna a client_list -->
-                            <!-- <button mat-button (click)="removeClient(client.id)">
+                            <button mat-button (click)="removeInvoice(invoice.id)">
                                 <mat-icon>delete</mat-icon>
                             </button>
 
-                            <button mat-button (click)="modClient()">
+                            <!-- <button mat-button (click)="modClient()">
                                 <mat-icon>border_color</mat-icon>
                             </button>
 
