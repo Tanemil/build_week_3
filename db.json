@@ -24,164 +24,35 @@
   ],
   "clients": [
     {
-      "nomeCliente": "Cum nostrud rem ut d",
-      "cognomeCliente": "Et voluptatem id si",
-      "ragioneSociale": "Voluptatem quam qui ",
-      "partitaIva": 12,
-      "tipoCliente": "Aliqua Sit exercit",
-      "telefono": 45,
-      "email": "gored@mailinator.com",
-      "pec": "fuhefa@mailinator.com",
+      "idCliente": 2,
+      "nomeCliente": "Gianlucavdsv",
+      "cognomeCliente": "Gallone",
+      "ragioneSociale": "Qui illum ullamco v",
+      "partitaIva": 86,
+      "tipoCliente": "Eum autem natus in n",
+      "telefono": 3,
+      "email": "nykericaha@mailinator.com",
+      "pec": "ryxusyqak@mailinator.com",
       "indirizzoSedeOperativa": {
-        "via": "Itaque magnam velit ",
-        "civico": 50,
-        "cap": 20,
+        "via": "Voluptatem et quis d",
+        "civico": 95,
+        "cap": 76,
         "localita": {
-          "comune": "Qui rem error sunt n",
-          "provincia": "Similique velit ea v"
+          "comune": "Doloremque cum nulla",
+          "provincia": "Deleniti dolorem quo"
         }
       },
       "indirizzoSedeLegale": {
-        "via": "Iste est sit offici",
-        "civico": 4,
-        "cap": 1,
+        "via": "Quidem a dolores ani",
+        "civico": 1,
+        "cap": 77,
         "localita": {
-          "comune": "Voluptates enim maio",
-          "provincia": "Saepe dolore molesti"
+          "comune": "Numquam elit porro ",
+          "provincia": "Suscipit adipisci si"
         }
       },
       "id": 1
-    },
-    {
-      "nomeCliente": "Deserunt et placeat",
-      "cognomeCliente": "Ipsum qui corrupti ",
-      "ragioneSociale": "Aut voluptatem aut q",
-      "partitaIva": 72,
-      "tipoCliente": "Nulla fugit minima ",
-      "telefono": 56,
-      "email": "gidyj@mailinator.com",
-      "pec": "sigygo@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "Quibusdam enim nostr",
-        "civico": 29,
-        "cap": 92,
-        "localita": {
-          "comune": "Consectetur atque e",
-          "provincia": "Aut quam at dicta do"
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "Blanditiis nostrum v",
-        "civico": 66,
-        "cap": 62,
-        "localita": {
-          "comune": "Sed dolores aute eli",
-          "provincia": "Corporis nisi quia a"
-        }
-      },
-      "id": 2
-    },
-    {
-      "nomeCliente": "Et iusto aliquam exe",
-      "cognomeCliente": "Voluptas maiores ist",
-      "ragioneSociale": "In in magnam sed mol",
-      "partitaIva": 61,
-      "tipoCliente": "Id cum consequuntur",
-      "telefono": 53,
-      "email": "fudeguw@mailinator.com",
-      "pec": "fulomefabi@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "Voluptate culpa a no",
-        "civico": 27,
-        "cap": 95,
-        "localita": {
-          "comune": "Et pariatur Cumque ",
-          "provincia": "Sed non itaque nisi "
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "Aliquip quo fuga Ex",
-        "civico": 36,
-        "cap": 63,
-        "localita": {
-          "comune": "Doloribus iste tempo",
-          "provincia": "Cupiditate consequat"
-        }
-      },
-      "id": 3
-    },
-    {
-      "nomeCliente": "Et iusto aliquam exe",
-      "cognomeCliente": "Voluptas maiores ist",
-      "ragioneSociale": "In in magnam sed mol",
-      "partitaIva": "",
-      "tipoCliente": "Id cum consequuntur",
-      "telefono": "",
-      "email": "fudeguw@mailinator.com",
-      "pec": "fulomefabi@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "",
-        "civico": "",
-        "cap": "",
-        "localita": {
-          "comune": "",
-          "provincia": ""
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "",
-        "civico": "",
-        "cap": "",
-        "localita": {
-          "comune": "",
-          "provincia": ""
-        }
-      },
-      "id": 4
-    },
-    {
-      "nomeCliente": "Et iusto aliquam exe",
-      "cognomeCliente": "Voluptas maiores ist",
-      "ragioneSociale": "In in magnam sed mol",
-      "partitaIva": 61,
-      "tipoCliente": "Id cum consequuntur",
-      "telefono": 53,
-      "email": "fudeguw@mailinator.com",
-      "pec": "fulomefabi@mailinator.com",
-      "indirizzoSedeOperativa": {
-        "via": "Voluptate culpa a no",
-        "civico": 27,
-        "cap": 95,
-        "localita": {
-          "comune": "Et pariatur Cumque ",
-          "provincia": "Sed non itaque nisi "
-        }
-      },
-      "indirizzoSedeLegale": {
-        "via": "Aliquip quo fuga Ex",
-        "civico": 36,
-        "cap": 63,
-        "localita": {
-          "comune": "Doloribus iste tempo",
-          "provincia": "Cupiditate consequat"
-        }
-      },
-      "id": 5
     }
   ],
-  "taxes": [
-    {
-      "data": "1997-06-24",
-      "numero": 67,
-      "scadenza": "2009-02-16",
-      "importo": 80,
-      "natura": "Pariatur Aut do tem",
-      "quantita": "123",
-      "cliente": {
-        "nome": "Non quis doloremque ",
-        "id": 1
-      },
-      "id": 2
-    }
-  ]
+  "taxes": []
 }

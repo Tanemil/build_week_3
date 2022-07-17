@@ -10,7 +10,7 @@ export class ActualClientIdService {
 
   changeState(myChange: number) {
     this.state$.next(myChange);
-    localStorage.setItem('idCliente', JSON.stringify(myChange));
+    sessionStorage.setItem('idCliente', JSON.stringify(myChange));
   }
 
   getState() {

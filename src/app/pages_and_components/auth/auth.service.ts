@@ -84,12 +84,6 @@ export class AuthService {
     return this.http.delete('http://localhost:4201/clients/' + id); //clients.id
   }
 
-  /*   modClientS(id: number): Observable<Object> {
-      return this.http.delete('http://localhost:4201/clients/' + id);
-    } */
-
-  /* ------------------------------------------- */
-
   /* aggiunge valori di ritorno del form, al db */
   add_client(obj: IClientsData) {
     return this.http.post(this.urlJsonServer + '/clients', obj);
@@ -101,6 +95,10 @@ export class AuthService {
 
   get_taxes_by_id() {
     return this.http.get(this.urlJsonServer + '/taxes');
+  }
+
+  getClientId(id: number) {
+    return this.http.get(this.urlJsonServer + '/clients' + id);
   }
 
   /* ------ Reload della rotta (non del browser) -------- */

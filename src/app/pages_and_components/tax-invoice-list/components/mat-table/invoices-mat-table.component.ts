@@ -110,7 +110,7 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
   }
 
   loadClientId() {
-    this.client_id = localStorage.getItem('idCliente');
+    this.client_id = sessionStorage.getItem('idCliente');
   }
 
 }

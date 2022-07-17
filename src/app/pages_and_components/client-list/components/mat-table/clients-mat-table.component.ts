@@ -118,12 +118,13 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
     this.getAfterDelete();
   }
 
-  modClient(id: IClientsData): void {
+  saveClient(id: IClientsData): void {
     //this.authService.modClientS();
     this.clients.forEach(ele => {
       /* se l'elemento ciclato e' = all'id (cliente selezionato) */
       if (ele === id) {
-        localStorage.setItem('ele', JSON.stringify(ele))
+        /* inserisci i dati nel localStorage */
+        sessionStorage.setItem('storedClient', JSON.stringify(ele))
       }
     })
     this.authService.reloadRoute();

@@ -1,4 +1,5 @@
 export interface IClientsData {
+    "idCliente"?: number,
     "nomeCliente"?: string,
     "cognomeCliente"?: string,
     "ragioneSociale": string,

@@ -8,6 +8,11 @@
             <h2><b>Dati Anagrafici:</b></h2>
 
             <mat-form-field appearance="fill">
+                <mat-label>ID Cliente</mat-label>
+                <input matInput type="number" formControlName="idCliente" readonly="true">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
                 <mat-label>Nome Cliente</mat-label>
                 <input matInput type="text" formControlName="nomeCliente">
             </mat-form-field>
@@ -115,8 +120,13 @@
 
             <br>
 
-            <button mat-button type="submit">Aggiungi</button>
+            <button mat-button type="submit">Aggiungi Cliente</button>
+
 
         </div>
+
     </mat-expansion-panel>
 </form>
+
+<button mat-button (click)="modClient(idCliente)">Modifica Cliente</button>
+<button mat-button (click)="clearFields()">Cancella Campi</button>
