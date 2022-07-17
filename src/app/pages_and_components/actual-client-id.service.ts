@@ -10,9 +10,11 @@ export class ActualClientIdService {
 
   changeState(myChange: number) {
     this.state$.next(myChange);
+    localStorage.setItem('idCliente', JSON.stringify(myChange));
   }
 
   getState() {
+    /* ritorna cambiamento di stato come observable */
     return this.state$.asObservable();
   }
 }

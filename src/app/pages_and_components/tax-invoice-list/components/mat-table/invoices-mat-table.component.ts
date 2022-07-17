@@ -9,6 +9,7 @@ import { ITaxesData } from '../../interfaces/itaxes-data';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-invoices-mat-table',
@@ -34,7 +35,9 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
   dataSource: MatTableDataSource<ITaxesData> = new MatTableDataSource(this.invoices);
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
   expandedElement!: ITaxesData | null;
-  client_id!: number;
+  private urlJsonServer = 'http://localhost:4201';
+  client_id!: any;
+  storedId!: any;
   error = undefined;
 
   constructor(
@@ -47,6 +50,7 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
     this.get_actual_client_id(); // get id cliente
     this.getAllInvoices();
     this.dataSource = new MatTableDataSource(this.invoices);
+    //this.loadClientId();
   }
 
   ngOnChanges(): void {
@@ -72,7 +76,7 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
     })
   }
 
-  /* get con chiamata async che crea un table e success lo popola con i dati */
+  /* crea un table e success lo popola con i dati */
   getAllInvoices() {
     this.authService.authSubject.subscribe(client => {
       this.http.get<ITaxesData[]>('http://localhost:4201/taxes', {
@@ -103,6 +107,10 @@ export class InvoicesMatTableComponent implements OnInit, AfterViewInit, OnChang
   removeInvoice(id: number): void {
     this.authService.removeInvoiceS(id).subscribe();
     this.getAllInvoices();
+  }
+
+  loadClientId() {
+    this.client_id = localStorage.getItem('idCliente');
   }
 
 }

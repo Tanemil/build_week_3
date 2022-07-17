@@ -40,7 +40,7 @@ export class InvoicesMatFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.get_actual_client_id()
-    this.clientForm.controls.cliente.controls.id.setValue(this.client_id)
+    this.clientForm.get('cliente.id')?.setValue(this.client_id);
     console.log(this.client_id);
   }
 

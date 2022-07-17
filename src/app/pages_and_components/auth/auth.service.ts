@@ -103,11 +103,6 @@ export class AuthService {
     return this.http.get(this.urlJsonServer + '/taxes');
   }
 
-  /* Get del taxes.cliente.id per recuperarlo in caso di refresh */
-  getTaxClientId() {
-    return this.http.get(this.urlJsonServer + '/taxes');
-  }
-
   /* ------ Reload della rotta (non del browser) -------- */
   reloadRoute() {
     const currentRoute = this.router.url;
@@ -115,4 +110,5 @@ export class AuthService {
       this.router.navigate([currentRoute]);
     });
   }
+
 }

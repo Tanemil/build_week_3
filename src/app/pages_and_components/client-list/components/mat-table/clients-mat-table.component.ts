@@ -34,6 +34,8 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
   expandedElement!: IClientsData | null;
   error = undefined;
+  client_id!: number;
+  storedId!: any;
 
   constructor(
     private authService: AuthService,
@@ -90,7 +92,7 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
       })
         .subscribe(
           resp => {
-            /* cast dell'oggetto json intero (resp) per trasf in prop come quelle dell'interfaccia */
+            /* cast dell'oggetto json intero (resp) per tipizzarle in prop come quelle dell'interfaccia */
             let castResp: IClientsData[] = <IClientsData[]><unknown>resp;
             this.clients = castResp;
             this.dataSource = new MatTableDataSource(this.clients)
@@ -116,12 +118,23 @@ export class ClientsMatTableComponent implements OnInit, AfterViewInit, OnChange
     this.getAfterDelete();
   }
 
-  /*   modClient(): void {
-      this.authService.modClientS();
-    } */
+  modClient(id: IClientsData): void {
+    //this.authService.modClientS();
+    this.clients.forEach(ele => {
+      /* se l'elemento ciclato e' = all'id (cliente selezionato) */
+      if (ele === id) {
+        localStorage.setItem('ele', JSON.stringify(ele))
+      }
+    })
+    this.authService.reloadRoute();
+  }
 
   set_actual_id(id: number) {
+    /* Prendi id cliente al click */
     this.actual_id.changeState(id);
+    this.actual_id.getState().subscribe(resp => {
+      this.client_id = resp
+    })
   }
 
 }

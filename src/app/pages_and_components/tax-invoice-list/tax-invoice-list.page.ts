@@ -10,7 +10,6 @@ export class TaxInvoiceListPage implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-    console.log(this.authService.getTaxClientId());
-  }
+  ngOnInit(): void { }
+
 }
