@@ -22,6 +22,52 @@
       "id": 3
     }
   ],
-  "clients": [],
+  "clients": [
+    {
+      "ragioneSociale": "Debitis in facilis i",
+      "partitaIva": 26,
+      "tipoCliente": "Voluptates tenetur h",
+      "email": "pywi@mailinator.com",
+      "pec": "Fuga Vel dicta est ",
+      "telefono": 93,
+      "nomeContatto": "Exercitation sequi v",
+      "cognomeContatto": "Consequat Et qui of",
+      "telefonoContatto": 96,
+      "emailContatto": "hexogu@mailinator.com",
+      "indirizzoSedeOperativa": {
+        "via": "Sint et porro aut pa",
+        "civico": 16,
+        "cap": 99,
+        "localita": "Sint anim nulla aliq",
+        "comune": {
+          "id": 75,
+          "nome": "Magnam dolorum volup",
+          "provincia": {
+            "id": 36,
+            "nome": "Fugiat voluptatum r",
+            "sigla": "Id quasi ex deserun"
+          }
+        }
+      },
+      "indirizzoSedeLegale": {
+        "via": "Aut et quasi quo nih",
+        "civico": 95,
+        "cap": 42,
+        "localita": "Provident adipisici",
+        "comune": {
+          "id": 63,
+          "nome": "Sint error enim inc",
+          "provincia": {
+            "id": 56,
+            "nome": "Provident ipsum so",
+            "sigla": "Autem qui consectetu"
+          }
+        }
+      },
+      "dataInserimento": 84,
+      "dataUltimoContatto": 34,
+      "id": 1
+    }
+  ],
   "taxes": []
 }
