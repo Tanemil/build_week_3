@@ -1,12 +1,12 @@
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, filter, Observable, tap } from 'rxjs';
 import { IAuthData } from './interfaces/iauth-data';
 import { ISignupData } from './interfaces/isignup-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IClientsData } from '../client-list/interfaces/iclients-data';
-import { ITaxesData } from '../client-list/interfaces/itaxes-data';
+import { ITaxesData } from '../tax-invoice-list/interfaces/itaxes-data';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,6 @@ export class AuthService {
   private urlJsonServer = 'http://localhost:4201';
   helper = new JwtHelperService();
   error = undefined;
-  /*   clients: IClientsData[] = []; */
 
   constructor(private http: HttpClient, private router: Router) {
     this.restoreUserLogin();
@@ -69,21 +68,21 @@ export class AuthService {
     })
   }
 
+  /* rimuove tutte le fatture relative a quel cliente */
   removeTaxes(element: ITaxesData) {
     let id_elemento_da_cancellare = element.id
-    return this.http.delete('http://localhost:4201/taxes/' + id_elemento_da_cancellare)
+    return this.http.delete('http://localhost:4201/taxes/' + id_elemento_da_cancellare) // taxes.cliente.id
   }
 
+  /* rimuove la singola fattura al click */
+  removeInvoiceS(id: number): Observable<Object> {
+    return this.http.delete('http://localhost:4201/taxes/' + id) // taxes.id
+  }
+
+  /* rimuove il singolo cliente al click */
   removeClientS(id: number): Observable<Object> {
-
-    return this.http.delete('http://localhost:4201/clients/' + id);
+    return this.http.delete('http://localhost:4201/clients/' + id); //clients.id
   }
-
-  /*   modClientS(id: number): Observable<Object> {
-      return this.http.delete('http://localhost:4201/clients/' + id);
-    } */
-
-  /* ------------------------------------------- */
 
   /* aggiunge valori di ritorno del form, al db */
   add_client(obj: IClientsData) {
@@ -96,6 +95,18 @@ export class AuthService {
 
   get_taxes_by_id() {
     return this.http.get(this.urlJsonServer + '/taxes');
+  }
+
+  getClientId(id: number) {
+    return this.http.get(this.urlJsonServer + '/clients' + id);
+  }
+
+  /* ------ Reload della rotta (non del browser) -------- */
+  reloadRoute() {
+    const currentRoute = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentRoute]);
+    });
   }
 
 }

@@ -1,202 +1,132 @@
 <form #f="ngForm" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
     <mat-expansion-panel class="mt-5 mb-5" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
-            <mat-panel-title>
-                Form aggiungi cliente
-            </mat-panel-title>
+            <mat-panel-title id="form-title">Form Aggiungi Cliente</mat-panel-title>
         </mat-expansion-panel-header>
         <div class="container_input_field">
 
+            <h2><b>Dati Anagrafici:</b></h2>
+
             <mat-form-field appearance="fill">
-                <mat-label>nome contatto</mat-label>
-                <input matInput type="text" formControlName="nomeContatto">
+                <mat-label>ID Cliente</mat-label>
+                <input matInput type="number" formControlName="idCliente" readonly="true">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>cognome contatto</mat-label>
-                <input matInput type="text" formControlName="cognomeContatto">
+                <mat-label>Nome Cliente</mat-label>
+                <input matInput type="text" formControlName="nomeCliente">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>ragione sociale</mat-label>
+                <mat-label>Cognome Cliente</mat-label>
+                <input matInput type="text" formControlName="cognomeCliente">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ragione Sociale</mat-label>
                 <input matInput type="text" formControlName="ragioneSociale">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>partita Iva</mat-label>
+                <mat-label>Partita Iva</mat-label>
                 <input matInput type="number" formControlName="partitaIva">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>tipo cliente</mat-label>
+                <mat-label>Tipo Cliente</mat-label>
                 <input matInput type="text" formControlName="tipoCliente">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>email</mat-label>
-                <input matInput type="email" formControlName="email">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>pec</mat-label>
-                <input matInput type="text" formControlName="pec">
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <mat-label>telefono</mat-label>
+                <mat-label>Recapito Telefonico</mat-label>
                 <input matInput type="number" formControlName="telefono">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>telefono contatto</mat-label>
-                <input matInput type="number" formControlName="telefonoContatto">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>email contatto</mat-label>
-                <input matInput type="email" formControlName="emailContatto">
+                <mat-label>Pec</mat-label>
+                <input matInput type="email" formControlName="pec">
             </mat-form-field>
 
             <div formGroupName="indirizzoSedeOperativa">
 
-                <h2>indirizzo sede operativa</h2>
+                <h2><b>Indirizzo Sede Operativa</b></h2>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>via</mat-label>
+                    <mat-label>Via</mat-label>
                     <input matInput type="text" formControlName="via">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>civico</mat-label>
+                    <mat-label>N. civico</mat-label>
                     <input matInput type="number" formControlName="civico">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>cap</mat-label>
+                    <mat-label>Cap</mat-label>
                     <input matInput type="number" formControlName="cap">
                 </mat-form-field>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>localita'</mat-label>
-                    <input matInput type="text" formControlName="localita">
-                </mat-form-field>
-
-                <div formGroupName="comune">
-
-                    <h3>comune</h3>
+                <div formGroupName="localita">
 
                     <mat-form-field appearance="fill">
-                        <mat-label>id</mat-label>
-                        <input matInput type="number" formControlName="id">
+                        <mat-label>Comune</mat-label>
+                        <input matInput type="text" formControlName="comune">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill">
-                        <mat-label>nome</mat-label>
-                        <input matInput type="text" formControlName="nome">
+                        <mat-label>Provincia</mat-label>
+                        <input matInput type="text" formControlName="provincia">
                     </mat-form-field>
-
-                    <div formGroupName="provincia">
-
-                        <h4>provincia</h4>
-
-                        <mat-form-field appearance="fill">
-                            <mat-label>id</mat-label>
-                            <input matInput type="number" formControlName="id">
-                        </mat-form-field>
-
-                        <mat-form-field appearance="fill">
-                            <mat-label>nome</mat-label>
-                            <input matInput type="text" formControlName="nome">
-                        </mat-form-field>
-
-                        <mat-form-field appearance="fill">
-                            <mat-label>sigla</mat-label>
-                            <input matInput type="text" formControlName="sigla">
-                        </mat-form-field>
-
-                    </div>
-
                 </div>
-
             </div>
 
             <div formGroupName="indirizzoSedeLegale">
 
-                <h2>indirizzo sede legale</h2>
+                <h2><b>Indirizzo Sede Legale</b></h2>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>via</mat-label>
+                    <mat-label>Via</mat-label>
                     <input matInput type="text" formControlName="via">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>civico</mat-label>
+                    <mat-label>N. civico</mat-label>
                     <input matInput type="number" formControlName="civico">
                 </mat-form-field>
 
                 <mat-form-field appearance="fill">
-                    <mat-label>cap</mat-label>
+                    <mat-label>Cap</mat-label>
                     <input matInput type="number" formControlName="cap">
                 </mat-form-field>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>localita'</mat-label>
-                    <input matInput type="text" formControlName="localita">
-                </mat-form-field>
-
-                <div formGroupName="comune">
-
-                    <h3>comune</h3>
+                <div formGroupName="localita">
 
                     <mat-form-field appearance="fill">
-                        <mat-label>id</mat-label>
-                        <input matInput type="number" formControlName="id">
+                        <mat-label>Comune</mat-label>
+                        <input matInput type="text" formControlName="comune">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill">
-                        <mat-label>nome</mat-label>
-                        <input matInput type="text" formControlName="nome">
+                        <mat-label>Provincia</mat-label>
+                        <input matInput type="text" formControlName="provincia">
                     </mat-form-field>
-
-                    <div formGroupName="provincia">
-
-                        <h4>provincia</h4>
-
-                        <mat-form-field appearance="fill">
-                            <mat-label>id</mat-label>
-                            <input matInput type="number" formControlName="id">
-                        </mat-form-field>
-
-                        <mat-form-field appearance="fill">
-                            <mat-label>nome</mat-label>
-                            <input matInput type="text" formControlName="nome">
-                        </mat-form-field>
-
-                        <mat-form-field appearance="fill">
-                            <mat-label>sigla</mat-label>
-                            <input matInput type="text" formControlName="sigla">
-                        </mat-form-field>
-
-                    </div>
-
                 </div>
-
             </div>
 
             <br>
 
-            <mat-form-field appearance="fill">
-                <mat-label>data inserimento</mat-label>
-                <input matInput type="number" formControlName="dataInserimento">
-            </mat-form-field>
+            <button mat-button type="submit">Aggiungi Cliente</button>
 
-            <mat-form-field appearance="fill">
-                <mat-label>data ultimo contatto</mat-label>
-                <input matInput type="number" formControlName="dataUltimoContatto">
-            </mat-form-field>
-
-            <button mat-button type="submit">Submit</button>
 
         </div>
+
     </mat-expansion-panel>
 </form>
+
+<button mat-button (click)="modClient(idCliente)">Modifica Cliente</button>
+<button mat-button (click)="clearFields()">Cancella Campi</button>

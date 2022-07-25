@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-tax-invoice-list',
@@ -7,10 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaxInvoiceListPage implements OnInit {
 
-  constructor(
-  ) { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

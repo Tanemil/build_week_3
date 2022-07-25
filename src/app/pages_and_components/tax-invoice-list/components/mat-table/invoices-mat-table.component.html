@@ -1,46 +1,85 @@
-<!-- <p *ngFor="let client of invoices">{{client.id}}</p> -->
-
 <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <mat-label>Ricerca Fattura</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Es. Rata INPS" #input>
 </mat-form-field>
 
 <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
 
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let invoice"> {{invoice.id}} </td>
-        </ng-container>
+    <div class="mat-elevation-z8">
 
-        <ng-container matColumnDef="data">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
-            <td mat-cell *matCellDef="let invoice"> {{invoice.data}} </td>
-        </ng-container>
+        <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
+            <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+                <!-- se la colonna corrisp. e' === all'elem nell'array, nella colonna riporta un intestazione diversa -->
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <p *ngIf="column === displayedColumns[0]">ID Fattura: </p> <!-- dato attr dal json -->
+                    <p *ngIf="column === displayedColumns[1]">Data: </p>
+                    <p *ngIf="column === displayedColumns[2]">Numero: </p>
+                    <p *ngIf="column === displayedColumns[3]">Scadenza: </p>
+                    <p *ngIf="column === displayedColumns[4]">Importo: </p>
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+            </ng-container>
 
-        <ng-container matColumnDef="numero">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero </th>
-            <td mat-cell *matCellDef="let invoice"> {{invoice.numero}} </td>
-        </ng-container>
+            <ng-container matColumnDef="expand">
+                <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button aria-label="expand row"
+                        (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
 
-        <ng-container matColumnDef="anno">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Anno </th>
-            <td mat-cell *matCellDef="let invoice"> {{invoice.anno}} </td>
-        </ng-container>
+            <!-- Dati da inserire nell'expandable -->
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let invoice" [attr.colspan]="columnsToDisplayWithExpand.length">
+                    <div class="example-element-detail"
+                        [@detailExpand]="invoice == expandedElement ? 'expanded' : 'collapsed'">
+                        <div class="example-element-description">
+                            <!-- Qui inseriro' i dati completi degli input -->
+                            <span id="title">--- Dati Fattura: ---</span> <br>
+                            <span id="description">ID Fattura: </span>{{invoice.id}}
+                            <!-- id attr dal json -->
+                            <span id="description">Intestatario: </span>{{invoice.cliente.nome}}
+                            <span id="description">Natura beni: </span>{{invoice.natura}}
+                            <span id="description">Quantita: </span>{{invoice.quantita}}
+                            <span id="description">N.Fattura: </span>{{invoice.numero}}
+                            <span id="description">Data Emissione: </span>{{invoice.data}}
+                            <span id="description">Scadenza pagamento: </span>{{invoice.scadenza}}
+                            <span id="description">Importo: € </span>{{invoice.importo}}
 
-        <ng-container matColumnDef="importo">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Importo </th>
-            <td mat-cell *matCellDef="let invoice"> {{invoice.importo}} </td>
-        </ng-container>
+                            <!-- Button Rimuovi Fattura, Modifica Dati, Torna a client_list -->
+                            <button mat-button (click)="removeInvoice(invoice.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            <!-- <button mat-button (click)="modClient()">
+                                <mat-icon>border_color</mat-icon>
+                            </button>
 
+                            <a mat-button (click)="set_acual_id(client.id)" href="#"
+                                [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active"> Invoices
+                            </a> -->
 
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-    </table>
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
+                [class.example-expanded-row]="expandedElement === element"
+                (click)="expandedElement = expandedElement === element ? null : element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Nessuna fattura da mostrare</td>
+            </tr>
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of invoices"></mat-paginator>
+    </div>
 </div>

@@ -1,3 +1,6 @@
+# PRIMA INSTALLAZIONE (recupero di tutti i node_modules)
+npm i @ng-bootstrap/ng-bootstrap --legacy-peer-deps
+
 # AppFatture
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.

@@ -22,7 +22,7 @@ export class LoginMatCardComponent implements OnInit {
     this.authService.login(this.form.value).subscribe(
       resp => {
         this.error = undefined;
-        this.router.navigate(['home'])
+        this.router.navigate(['home']);
       },
       err => {
         this.error = err.error;

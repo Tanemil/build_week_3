@@ -1,6 +1,6 @@
 <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <mat-label>Ricerca Cliente</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Es. Mario Rossi" #input>
 </mat-form-field>
 
 <div class="mat-elevation-z8">
@@ -8,11 +8,8 @@
     <div class="mat-elevation-z8">
 
         <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
-
-            <!-- cicla elementi, riporta i titoli delle colonne come le prop. json, e scrive dati -->
-
             <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
-
+                <!-- se la colonna corrisp. e' === all'elem nell'array, nella colonna riporta un intestazione diversa -->
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
                     <p *ngIf="column === displayedColumns[0]">ID: </p>
                     <p *ngIf="column === displayedColumns[1]">Name: </p>
@@ -41,40 +38,43 @@
                         [@detailExpand]="client == expandedElement ? 'expanded' : 'collapsed'">
                         <div class="example-element-description">
                             <!-- Qui inseriro' i dati completi degli input -->
-                            <b>Anagrafica:</b>
-                            Nome: {{client.nomeContatto}}
-                            Cognome: {{client.cognomeContatto}}
-                            Tipo Cliente: {{client.tipoCliente}}
-                            Ragione Sociale: {{client.ragioneSociale}}
-                            P.Iva: {{client.partitaIva}}
+                            <span id="title">--- Anagrafica: ---</span> <br>
+                            <span id="description">Nome: </span>{{client.nomeCliente}}
+                            <span id="description">Cognome: </span>{{client.cognomeCliente}}
+                            <span id="description">Ragione Sociale: </span>{{client.ragioneSociale}}
+                            <span id="description">P.Iva: </span>{{client.partitaIva}}
+                            <span id="description">Tipo Cliente: </span>{{client.tipoCliente}}
                             <br>
-                            <b>Recapiti:</b>
-                            Email: {{client.emailContatto}}
-                            Pec: {{client.pec}}
-                            Telefono: {{client.telefonoContatto}}
+                            <span id="title">--- Recapiti: ---</span> <br>
+                            <span id="description">Telefono: </span>{{client.telefono}}
+                            <span id="description">Email: </span>{{client.email}}
+                            <span id="description">Pec: </span>{{client.pec}}
                             <br>
-                            <b>Indirizzo Sede Operativa:</b>
-                            Via: {{client.indirizzoSedeOperativa.via}} {{client.indirizzoSedeOperativa.civico}}
-                            Cap: {{client.indirizzoSedeOperativa.cap}}
-                            Comune: {{client.indirizzoSedeOperativa.comune.nome}}
-                            Provincia: {{client.indirizzoSedeOperativa.comune.nome.provincia}}
-                            <br>
-                            <b>Indirizzo Sede Legale:</b>
-                            Via: {{client.indirizzoSedeLegale.via}} {{client.indirizzoSedeLegale.civico}}
-                            Cap: {{client.indirizzoSedeLegale.cap}}
-                            Comune: {{client.indirizzoSedeLegale.comune.nome}}
-                            Provincia: {{client.indirizzoSedeLegale.comune.nome.provincia}}
+                            <span id="title">--- Indirizzo Sede Operativa: ---</span> <br>
+                            <span id="description">Via: </span>{{client.indirizzoSedeOperativa.via}}
+                            <span id="description">n. </span>{{client.indirizzoSedeOperativa.civico}}
+                            <span id="description">Cap: </span>{{client.indirizzoSedeOperativa.cap}}
+                            <span id="description">Comune: </span>{{client.indirizzoSedeOperativa.localita.comune}}
+                            <span id="description">Comune: </span>{{client.indirizzoSedeOperativa.localita.provincia}}
+
+                            <span id="title">--- Indirizzo Sede Legale: ---</span> <br>
+                            <span id="description">Via: </span>{{client.indirizzoSedeLegale.via}}
+                            <span id="description">n. </span>{{client.indirizzoSedeLegale.civico}}
+                            <span id="description">Cap: </span>{{client.indirizzoSedeLegale.cap}}
+                            <span id="description">Comune: </span>{{client.indirizzoSedeLegale.localita.comune}}
+                            <span id="description">Comune: </span>{{client.indirizzoSedeLegale.localita.provincia}}
 
                             <button mat-button (click)="removeClient(client.id)">
                                 <mat-icon>delete</mat-icon>
                             </button>
 
-                            <!--                             <button mat-button (click)="modClient()">
+                            <button mat-button (click)="saveClient(client)">
                                 <mat-icon>border_color</mat-icon>
-                            </button> -->
+                            </button>
 
-                            <a mat-button (click)="set_acual_id(client.id)" href="#"
-                                [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active"> Invoices</a>
+                            <a mat-button (click)="set_actual_id(client.id)" href="#"
+                                [routerLink]="['/tax_invoice_list']" routerLinkActive="router-link-active"> Fatture
+                            </a>
                         </div>
                     </div>
                 </td>
@@ -88,7 +88,7 @@
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 
             <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                <td class="mat-cell" colspan="4">Nessun cliente registrato</td>
             </tr>
 
         </table>
